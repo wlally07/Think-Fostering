@@ -68,7 +68,7 @@
         .cta-banner{background:linear-gradient(135deg,var(--primary) 0%,var(--accent-orange) 100%);color:var(--white);text-align:center;padding:80px 24px}.cta-banner h2{color:var(--white);margin-bottom:16px}.cta-banner p{font-size:1.15rem;opacity:0.9;margin-bottom:36px;max-width:620px;margin-left:auto;margin-right:auto}.cta-banner .btn{background:var(--white);color:var(--primary);font-weight:700}
         .footer{background:var(--dark);color:rgba(255,255,255,0.7);padding:80px 0 30px}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:60px}.footer-brand p{font-size:0.9rem;line-height:1.8;max-width:300px;margin-top:16px}.footer h4{color:var(--white);font-family:'Inter',sans-serif;font-size:1rem;font-weight:600;margin-bottom:20px}.footer-links{list-style:none}.footer-links li{margin-bottom:12px}.footer-links a{font-size:0.9rem;transition:color 0.2s}.footer-links a:hover{color:var(--primary)}.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:28px;display:flex;justify-content:space-between;font-size:0.85rem}
         .mobile-nav{display:none;position:fixed;top:80px;left:0;right:0;bottom:0;background:var(--white);z-index:999;padding:32px 24px}.mobile-nav.active{display:block}.mobile-nav a{display:block;padding:16px 0;font-size:1.2rem;font-weight:500;border-bottom:1px solid #eee}.mobile-nav .btn{margin-top:24px;width:100%;justify-content:center}
-        .fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}.fade-up.visible{opacity:1;transform:translateY(0)}
+        .js-enabled .fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}.fade-up.visible{opacity:1;transform:translateY(0)}
         .agency-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
         .agency-card{background:var(--white);border-radius:20px;padding:28px;box-shadow:0 2px 12px rgba(0,0,0,0.04);border:1px solid #eef2f7;transition:all 0.3s}
         .agency-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
@@ -506,8 +506,22 @@
     </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-window.addEventListener("scroll",function(){document.getElementById("header").classList.toggle("scrolled",window.scrollY>20)});
-var mt=document.getElementById("mobileToggle");var mn=document.getElementById("mobileNav");if(mt&&mn){mt.addEventListener("click",function(){mn.classList.toggle("active")})};
-function toggleFaq(btn){var item=btn.parentElement;var wasOpen=item.classList.contains("open");document.querySelectorAll(".faq-item").forEach(function(i){i.classList.remove("open")});if(!wasOpen)item.classList.add("open")}
-var observer=new IntersectionObserver(function(entries){e
+<script>
+    // Header scroll
+    window.addEventListener('scroll', function() {
+        var h = document.getElementById('header');
+        if (h) h.classList.toggle('scrolled', window.scrollY > 20);
+    });
+    // Mobile nav
+    var mt = document.getElementById('mobileToggle');
+    var mn = document.getElementById('mobileNav');
+    if (mt && mn) { mt.addEventListener('click', function() { mn.classList.toggle('active'); }); }
+    function closeMobileNav() { var mn = document.getElementById('mobileNav'); if (mn) mn.classList.remove('active'); }
+    // FAQ
+    function toggleFaq(btn) { var item = btn.parentElement; var wasOpen = item.classList.contains('open'); document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); }); if (!wasOpen) item.classList.add('open'); }
+    // Scroll animations
+    var observer = new IntersectionObserver(function(entries) { entries.forEach(function(entry) { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+</script>
+</body>
+</html>

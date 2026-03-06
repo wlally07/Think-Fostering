@@ -190,7 +190,7 @@
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; }
 
         /* ANIMATIONS */
-        .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .js-enabled .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
         .fade-up.visible { opacity: 1; transform: translateY(0); }
 
         
@@ -234,6 +234,7 @@
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Think Fostering", "url": "https://thinkfostering.co.uk", "description": "UK fostering comparison platform helping prospective foster carers find and compare Ofsted-registered fostering agencies.", "sameAs": []}</script>
 </head>
 <body>
+<script>document.documentElement.classList.add("js-enabled");</script>
 
 <!-- HEADER -->
 <header class="header" id="header">
@@ -725,16 +726,22 @@
     </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    window.addEventListener('scroll', function() { document.getElementById('header').classList.toggle('scrolled', window.scrollY > 20); });
-    document.getElementById('mobileToggle').addEventListener('click', function() { document.getElementById('mobileNav').classList.toggle('active'); });
-
-    function toggleFaq(btn) {
-        var item = btn.parentElement;
-        var wasOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
-        if (!wasOpen) item.classList.add('open');
-    }
-
-    var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(var observer=new IntersectionObserver(function(entries){e
+<script>
+    // Header scroll
+    window.addEventListener('scroll', function() {
+        var h = document.getElementById('header');
+        if (h) h.classList.toggle('scrolled', window.scrollY > 20);
+    });
+    // Mobile nav
+    var mt = document.getElementById('mobileToggle');
+    var mn = document.getElementById('mobileNav');
+    if (mt && mn) { mt.addEventListener('click', function() { mn.classList.toggle('active'); }); }
+    function closeMobileNav() { var mn = document.getElementById('mobileNav'); if (mn) mn.classList.remove('active'); }
+    // FAQ
+    function toggleFaq(btn) { var item = btn.parentElement; var wasOpen = item.classList.contains('open'); document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); }); if (!wasOpen) item.classList.add('open'); }
+    // Scroll animations
+    var observer = new IntersectionObserver(function(entries) { entries.forEach(function(entry) { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+</script>
+</body>
+</html>

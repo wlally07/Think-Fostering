@@ -405,7 +405,7 @@
         }
 
         /* ===== ANIMATION ===== */
-        .fade-up {
+        .js-enabled .fade-up {
             opacity: 0; transform: translateY(30px);
             transition: opacity 0.7s ease, transform 0.7s ease;
         }
@@ -696,169 +696,22 @@ function submitContactForm() {
     </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // ===== STATE =====
-    let currentStep = 1;
-    const totalSteps = 4;
-    let hasSecondApplicant = false;
-
-    // ===== HEADER =====
-    window.addEventListener('scroll', () => {
-        document.getElementById('header').classList.toggle('scrolled', window.scrollY > 20);
+<script>
+    // Header scroll
+    window.addEventListener('scroll', function() {
+        var h = document.getElementById('header');
+        if (h) h.classList.toggle('scrolled', window.scrollY > 20);
     });
-
-    // ===== MOBILE NAV =====
-    document.getElementById('mobileToggle').addEventListener('click', () => {
-        document.getElementById('mobileNav').classList.toggle('active');
-    });
-    function closeMobileNav() { document.getElementById('mobileNav').classList.remove('active'); }
-
-    // ===== SECOND APPLICANT =====
-    function toggleSecondApplicant() {
-        hasSecondApplicant = !hasSecondApplicant;
-        document.getElementById('secondApplicant').classList.toggle('show', hasSecondApplicant);
-        document.getElementById('toggleSecond').style.display = hasSecondApplicant ? 'none' : 'block';
-    }
-
-    // ===== STEP NAVIGATION =====
-    function showStep(step) {
-        document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
-        document.getElementById('step-' + step).classList.add('active');
-
-        document.querySelectorAll('.progress-step').forEach(p => {
-            const s = parseInt(p.dataset.step);
-            p.classList.remove('active', 'completed');
-            if (s === step) p.classList.add('active');
-            else if (s < step) p.classList.add('completed');
-        });
-
-        document.getElementById('prevBtn').style.display = step > 1 ? 'inline-flex' : 'none';
-        document.getElementById('nextBtn').textContent = step === totalSteps ? '🚀 Submit Enquiry' : 'Continue →';
-        document.getElementById('stepInfo').textContent = 'Step ' + step + ' of ' + totalSteps;
-
-        if (step === 4) buildReview();
-
-        document.getElementById('formCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    function nextStep() {
-        if (currentStep === totalSteps) {
-            submitForm();
-            return;
-        }
-        currentStep++;
-        showStep(currentStep);
-    }
-
-    function prevStep() {
-        if (currentStep > 1) {
-            currentStep--;
-            showStep(currentStep);
-        }
-    }
-
-    function goToStep(step) {
-        if (step <= currentStep || step === currentStep + 1) {
-            currentStep = step;
-            showStep(currentStep);
-        }
-    }
-
-    // ===== BUILD REVIEW =====
-    function buildReview() {
-        const val = id => {
-            const el = document.getElementById(id);
-            if (!el) return '';
-            if (el.tagName === 'SELECT') return el.options[el.selectedIndex]?.text || '';
-            return el.value || '';
-        };
-
-        let html = '<div style="display:flex;flex-direction:column;gap:24px;">';
-
-        // Enquiry Type
-        html += reviewSection('📋 Nature of Enquiry', [
-            ['Enquiry Type', val('enquiryType')],
-        ]);
-
-        // Applicant 1
-        html += reviewSection('👤 First Applicant', [
-            ['Name', val('a1FirstName') + ' ' + val('a1Surname')],
-            ['Date of Birth', val('a1DOB')],
-            ['Email', val('a1Email')],
-            ['Mobile', val('a1Mobile')],
-            ['Marital Status', val('a1Marital')],
-            ['Employment', val('a1Employment')],
-            ['Nationality', val('a1Nationality')],
-        ]);
-
-        // Applicant 2
-        if (hasSecondApplicant) {
-            html += reviewSection('👤 Second Applicant', [
-                ['Name', val('a2FirstName') + ' ' + val('a2Surname')],
-                ['Date of Birth', val('a2DOB')],
-                ['Mobile', val('a2Mobile')],
-                ['Relationship', val('a2Relationship')],
-            ]);
-        }
-
-        // Household
-        html += reviewSection('🏠 Household', [
-            ['Address', [val('address1'), val('address2'), val('addressCity'), val('addressCounty'), val('addressPostcode')].filter(Boolean).join(', ')],
-            ['Property', val('propertyType') + ' (' + val('ownRent') + ')'],
-            ['Bedrooms', val('bedrooms')],
-            ['Spare Bedroom', val('spareBedroom')],
-            ['Children at Home', val('childrenAtHome')],
-            ['Pets', val('pets')],
-        ]);
-
-        // About
-        html += reviewSection('💭 About You', [
-            ['Fostering Type', val('fosteringType')],
-            ['Age Range', val('ageRange')],
-            ['Criminal Convictions', val('convictions')],
-            ['Known to Social Services', val('socialServices')],
-            ['Smoking', val('smoking')],
-            ['Driving Licence', val('drivingLicence')],
-            ['Right to Work in UK', val('rightToWork')],
-            ['Previous Application', val('previousApplication')],
-        ]);
-
-        if (val('message')) {
-            html += reviewSection('💬 Your Message', [['', val('message')]]);
-        }
-
-        html += '</div>';
-        document.getElementById('reviewContent').innerHTML = html;
-    }
-
-    function reviewSection(title, fields) {
-        let html = '<div style="background:#fafbfc;border-radius:12px;padding:24px;border:1px solid #e2e8f0;">';
-        html += '<h3 style="font-family:Baloo 2,cursive;font-size:1.1rem;margin-bottom:16px;color:#1a1a2e;">' + title + '</h3>';
-        fields.forEach(([label, value]) => {
-            if (value && value.trim()) {
-                html += '<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f1f5f9;font-size:0.9rem;">';
-                if (label) html += '<span style="color:#64748b;">' + label + '</span>';
-                html += '<span style="color:#1a1a2e;font-weight:500;text-align:right;max-width:60%;">' + escHTML(value) + '</span>';
-                html += '</div>';
-            }
-        });
-        html += '</div>';
-        return html;
-    }
-
-    // ===== SUBMIT =====
-    function submitForm() {
-        const consent = document.getElementById('consent');
-        if (!consent.checked) {
-            alert('Please tick the consent checkbox before submitting.');
-            return;
-        }
-
-        document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
-        document.getElementById('formSuccess').classList.add('show');
-        document.getElementById('formNav').style.display = 'none';
-        document.querySelector('.progress-bar').style.display = 'none';
-    }
-
-    // ===== UTILS =====
-    function escHTML(str) {
+    // Mobile nav
+    var mt = document.getElementById('mobileToggle');
+    var mn = document.getElementById('mobileNav');
+    if (mt && mn) { mt.addEventListener('click', function() { mn.classList.toggle('active'); }); }
+    function closeMobileNav() { var mn = document.getElementById('mobileNav'); if (mn) mn.classList.remove('active'); }
+    // FAQ
+    function toggleFaq(btn) { var item = btn.parentElement; var wasOpen = item.classList.contains('open'); document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); }); if (!wasOpen) item.classList.add('open'); }
+    // Scroll animations
+    var observer = new IntersectionObserver(function(entries) { entries.forEach(function(entry) { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+</script>
+</body>
+</html>

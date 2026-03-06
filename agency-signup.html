@@ -416,7 +416,7 @@
         }
 
         /* ===== ANIMATION ===== */
-        .fade-up {
+        .js-enabled .fade-up {
             opacity: 0; transform: translateY(30px);
             transition: opacity 0.7s ease, transform 0.7s ease;
         }
@@ -959,174 +959,22 @@
     </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // ===== AGENCY FORM STATE =====
-    let currentStep = 1;
-    const totalSteps = 4;
-
+<script>
     // Header scroll
     window.addEventListener('scroll', function() {
         var h = document.getElementById('header');
         if (h) h.classList.toggle('scrolled', window.scrollY > 20);
     });
-
     // Mobile nav
     var mt = document.getElementById('mobileToggle');
-    if (mt) mt.addEventListener('click', function() {
-        document.getElementById('mobileNav').classList.toggle('active');
-    });
-    function closeMobileNav() {
-        var mn = document.getElementById('mobileNav');
-        if (mn) mn.classList.remove('active');
-    }
-
-    function changeStep(dir) {
-        if (dir === 1 && !validateStep(currentStep)) return;
-        
-        var steps = document.querySelectorAll('.form-step');
-        var progSteps = document.querySelectorAll('.progress-step');
-        
-        if (currentStep === totalSteps && dir === 1) {
-            submitForm();
-            return;
-        }
-        
-        steps.forEach(function(s) { s.classList.remove('active'); });
-        currentStep += dir;
-        
-        var target = document.getElementById('step' + currentStep);
-        if (target) target.classList.add('active');
-        
-        progSteps.forEach(function(p) {
-            var sn = parseInt(p.getAttribute('data-step'));
-            p.classList.remove('active', 'completed');
-            if (sn === currentStep) p.classList.add('active');
-            if (sn < currentStep) p.classList.add('completed');
-        });
-        
-        document.getElementById('prevBtn').style.display = currentStep > 1 ? '' : 'none';
-        document.getElementById('nextBtn').textContent = currentStep === totalSteps ? 'Submit Agency Registration →' : 'Continue →';
-        document.getElementById('currentStep').textContent = 'Step ' + currentStep + ' of ' + totalSteps;
-        
-        if (currentStep === totalSteps) generateReview();
-        
-        window.scrollTo({ top: document.querySelector('.form-container').offsetTop - 100, behavior: 'smooth' });
-    }
-
-    function validateStep(step) {
-        var stepEl = document.getElementById('step' + step);
-        var required = stepEl.querySelectorAll('[required]');
-        var valid = true;
-        
-        required.forEach(function(field) {
-            field.classList.remove('error');
-            if (field.type === 'checkbox' && !field.checked) {
-                field.closest('.consent-label').style.color = '#e53e3e';
-                valid = false;
-            } else if (!field.value.trim()) {
-                field.classList.add('error');
-                valid = false;
-            } else if (field.closest('.consent-label')) {
-                field.closest('.consent-label').style.color = '';
-            }
-        });
-        
-        if (!valid) {
-            var firstError = stepEl.querySelector('.error, .consent-label[style*="color"]');
-            if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-        return valid;
-    }
-
-    function getVal(id) {
-        var el = document.getElementById(id);
-        if (!el) return '';
-        if (el.type === 'checkbox') return el.checked ? 'Yes' : 'No';
-        return el.value || '';
-    }
-
-    function getChecked(name) {
-        var items = [];
-        document.querySelectorAll('.checkbox-card input:checked').forEach(function(cb) {
-            var label = cb.closest('.checkbox-card').querySelector('.checkbox-label');
-            if (label) items.push(label.textContent.trim());
-        });
-        return items;
-    }
-
-    function getCheckedInSection(sectionTitle) {
-        var sections = document.querySelectorAll('.section-label');
-        for (var i = 0; i < sections.length; i++) {
-            if (sections[i].textContent.includes(sectionTitle)) {
-                var section = sections[i].closest('.form-section');
-                var items = [];
-                section.querySelectorAll('.checkbox-card input:checked').forEach(function(cb) {
-                    var label = cb.closest('.checkbox-card').querySelector('.checkbox-label');
-                    if (label) items.push(label.textContent.trim());
-                });
-                return items;
-            }
-        }
-        return [];
-    }
-
-    function generateReview() {
-        var fosteringTypes = getCheckedInSection('Types of Fostering');
-        var coverageAreas = getCheckedInSection('Coverage Areas');
-        var supportItems = getCheckedInSection('Support & Training');
-        
-        var html = '<div class="review-group">';
-        html += '<h3 class="review-heading">🏢 Agency Details</h3>';
-        html += '<div class="review-grid">';
-        html += reviewItem('Agency Name', getVal('agencyName'));
-        html += reviewItem('Ofsted Number', getVal('ofstedNumber'));
-        html += reviewItem('Ofsted Rating', getVal('ofstedRating'));
-        html += reviewItem('Year Established', getVal('yearEstablished'));
-        html += reviewItem('Website', getVal('agencyWebsite'));
-        html += '</div>';
-        if (getVal('agencyDescription')) html += '<div class="review-item full"><span class="review-label">Description</span><span class="review-value">' + getVal('agencyDescription').substring(0, 150) + '...</span></div>';
-        html += '<div class="review-item full"><span class="review-label">Address</span><span class="review-value">' + [getVal('address1'), getVal('address2'), getVal('city'), getVal('postcode')].filter(Boolean).join(', ') + '</span></div>';
-        html += '</div>';
-        
-        html += '<div class="review-group">';
-        html += '<h3 class="review-heading">🌍 Services & Coverage</h3>';
-        if (fosteringTypes.length) html += '<div class="review-item full"><span class="review-label">Fostering Types</span><span class="review-value">' + fosteringTypes.join(', ') + '</span></div>';
-        if (coverageAreas.length) html += '<div class="review-item full"><span class="review-label">Coverage Areas</span><span class="review-value">' + coverageAreas.join(', ') + '</span></div>';
-        var allowance = [getVal('allowanceFrom'), getVal('allowanceTo')].filter(Boolean);
-        if (allowance.length) html += '<div class="review-item full"><span class="review-label">Weekly Allowance</span><span class="review-value">£' + allowance.join(' - £') + '</span></div>';
-        if (supportItems.length) html += '<div class="review-item full"><span class="review-label">Support Offered</span><span class="review-value">' + supportItems.join(', ') + '</span></div>';
-        html += '</div>';
-        
-        html += '<div class="review-group">';
-        html += '<h3 class="review-heading">👤 Contact Person</h3>';
-        html += '<div class="review-grid">';
-        html += reviewItem('Name', getVal('contactFirst') + ' ' + getVal('contactSurname'));
-        html += reviewItem('Job Title', getVal('contactTitle'));
-        html += reviewItem('Email', getVal('contactEmail'));
-        html += reviewItem('Phone', getVal('contactPhone'));
-        html += reviewItem('Public Phone', getVal('publicPhone'));
-        html += reviewItem('Public Email', getVal('publicEmail'));
-        html += '</div>';
-        html += '</div>';
-        
-        document.getElementById('reviewContent').innerHTML = html;
-    }
-
-    function reviewItem(label, value) {
-        if (!value) return '';
-        return '<div class="review-item"><span class="review-label">' + label + '</span><span class="review-value">' + value + '</span></div>';
-    }
-
-    function submitForm() {
-        document.querySelectorAll('.form-step').forEach(function(s) { s.classList.remove('active'); });
-        document.getElementById('successStep').style.display = 'block';
-        document.getElementById('successStep').classList.add('active');
-        document.getElementById('formNav').style.display = 'none';
-        document.querySelector('.progress-bar').style.display = 'none';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
+    var mn = document.getElementById('mobileNav');
+    if (mt && mn) { mt.addEventListener('click', function() { mn.classList.toggle('active'); }); }
+    function closeMobileNav() { var mn = document.getElementById('mobileNav'); if (mn) mn.classList.remove('active'); }
+    // FAQ
+    function toggleFaq(btn) { var item = btn.parentElement; var wasOpen = item.classList.contains('open'); document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); }); if (!wasOpen) item.classList.add('open'); }
     // Scroll animations
-    var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-            if
+    var observer = new IntersectionObserver(function(entries) { entries.forEach(function(entry) { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+</script>
+</body>
+</html>
