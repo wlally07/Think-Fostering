@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright Horizons Fostering | Agency Profile | Think Fostering</title>
+    <meta name="description" content="View the full profile of Bright Horizons Fostering. Read Ofsted reports, see fostering services, allowances, and support available. Find a foster care agency near you.">
+    <link rel="canonical" href="https://thinkfostering.co.uk/agency/bright-horizons-fostering">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: #2d3748; line-height: 1.6; background: #f0f7ff; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+
+        :root {
+            --primary: #e6007e;
+            --primary-dark: #c4006b;
+            --secondary: #00b4d8;
+            --secondary-dark: #0096b7;
+            --accent-green: #7ac943;
+            --accent-yellow: #ffd100;
+            --accent-orange: #ff6b35;
+            --dark: #1a1a2e;
+            --text: #2d3748;
+            --text-light: #64748b;
+            --bg-light: #f0f7ff;
+            --white: #ffffff;
+            --radius: 16px;
+            --shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        h1, h2, h3, h4 { font-family: 'Baloo 2', cursive; line-height: 1.2; }
+        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; border-radius: 50px; font-weight: 600; font-size: 0.95rem; border: none; cursor: pointer; transition: all 0.3s ease; font-family: 'Inter', sans-serif; }
+        .btn-primary { background: var(--primary); color: var(--white); box-shadow: 0 4px 20px rgba(230,0,126,0.3); }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(230,0,126,0.4); }
+        .btn-secondary { background: var(--white); color: var(--primary); border: 2px solid var(--primary); }
+        .btn-secondary:hover { background: #fff0f6; }
+        .btn-green { background: var(--accent-green); color: var(--white); box-shadow: 0 4px 20px rgba(122,201,67,0.3); }
+        .btn-green:hover { background: #6ab838; transform: translateY(-2px); }
+
+        /* HEADER */
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.06); }
+        .header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+        .nav { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+        .logo { display: flex; align-items: center; gap: 10px; }
+        .logo-icon { width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary), var(--accent-orange)); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+        .logo-icon svg { width: 28px; height: 28px; }
+        .logo-text { font-family: 'Baloo 2', cursive; font-size: 1.6rem; font-weight: 800; color: var(--dark); }
+        .logo-text span { color: var(--primary); }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { font-weight: 500; font-size: 0.95rem; color: var(--text); transition: color 0.2s; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-cta .btn { padding: 12px 28px; font-size: 0.9rem; }
+        .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; }
+        .mobile-toggle span { width: 26px; height: 2.5px; background: var(--dark); border-radius: 2px; }
+
+        /* BREADCRUMB */
+        .breadcrumb { padding-top: 96px; padding-bottom: 16px; }
+        .breadcrumb-inner { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-light); }
+        .breadcrumb-inner a { color: var(--secondary); font-weight: 500; }
+        .breadcrumb-inner a:hover { color: var(--primary); }
+
+        /* PROFILE HEADER */
+        .profile-header { background: var(--white); border-radius: 20px; padding: 0; box-shadow: var(--shadow); overflow: hidden; margin-bottom: 28px; }
+        .profile-banner { height: 200px; background: linear-gradient(135deg, var(--dark) 0%, #2a2a4a 40%, var(--primary) 100%); position: relative; overflow: hidden; }
+        .profile-banner::after { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+        .profile-banner .featured-ribbon { position: absolute; top: 20px; right: 20px; background: linear-gradient(135deg, var(--accent-yellow), var(--accent-orange)); color: var(--white); font-size: 0.82rem; font-weight: 700; padding: 8px 20px; border-radius: 50px; z-index: 2; display: flex; align-items: center; gap: 6px; }
+        .profile-main { padding: 0 36px 36px; position: relative; }
+        .profile-logo-wrap { width: 110px; height: 110px; border-radius: 20px; background: var(--white); box-shadow: 0 4px 20px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; position: relative; margin-top: -55px; border: 4px solid var(--white); }
+        .profile-logo-wrap .logo-placeholder { width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary), var(--accent-orange)); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+        .profile-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-top: 20px; flex-wrap: wrap; }
+        .profile-info h1 { font-size: clamp(1.6rem, 3vw, 2rem); color: var(--dark); margin-bottom: 4px; }
+        .profile-info .agency-type { font-size: 0.88rem; color: var(--text-light); font-weight: 500; margin-bottom: 12px; }
+        .profile-meta { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 12px; }
+        .profile-meta-item { display: flex; align-items: center; gap: 6px; font-size: 0.88rem; color: var(--text-light); }
+        .profile-meta-item .icon { font-size: 1.1rem; }
+        .profile-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-start; }
+
+        /* OFSTED BADGE */
+        .ofsted-badge { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 12px; font-weight: 700; font-size: 0.88rem; }
+        .ofsted-outstanding { background: linear-gradient(135deg, #dcfce7, #bbf7d0); color: #15803d; border: 1px solid #86efac; }
+        .ofsted-good { background: #dbeafe; color: #1d4ed8; border: 1px solid #93c5fd; }
+
+        /* CONTENT GRID */
+        .profile-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 28px; }
+
+        /* CONTENT CARDS */
+        .card { background: var(--white); border-radius: var(--radius); padding: 28px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); margin-bottom: 28px; border: 1px solid #eef2f7; }
+        .card h2 { font-size: 1.3rem; color: var(--dark); margin-bottom: 20px; padding-bottom: 14px; border-bottom: 2px solid var(--bg-light); }
+        .card p { font-size: 0.94rem; color: var(--text-light); line-height: 1.85; margin-bottom: 14px; }
+        .card p:last-child { margin-bottom: 0; }
+
+        /* KEY FACTS */
+        .key-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .fact-item { background: var(--bg-light); border-radius: 12px; padding: 18px; }
+        .fact-item .fact-label { font-size: 0.78rem; color: var(--text-light); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+        .fact-item .fact-value { font-size: 1rem; color: var(--dark); font-weight: 700; }
+
+        /* FOSTERING TYPES */
+        .type-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+        .type-tag { padding: 8px 18px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; border: 1px solid #e2e8f0; color: var(--text); background: var(--white); transition: all 0.2s; }
+        .type-tag:hover { border-color: var(--primary); color: var(--primary); }
+        .type-tag.active { background: var(--primary); color: var(--white); border-color: var(--primary); }
+
+        /* REGIONS */
+        .region-list { display: flex; flex-wrap: wrap; gap: 10px; }
+        .region-chip { display: flex; align-items: center; gap: 6px; padding: 8px 16px; background: #eef6ff; border-radius: 50px; font-size: 0.85rem; font-weight: 500; color: var(--secondary-dark); }
+
+        /* STRENGTHS */
+        .strength-list { display: grid; gap: 12px; }
+        .strength-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px; background: var(--bg-light); border-radius: 12px; }
+        .strength-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+        .strength-item h4 { font-family: 'Inter', sans-serif; font-size: 0.92rem; font-weight: 700; color: var(--dark); margin-bottom: 2px; }
+        .strength-item p { font-size: 0.84rem; margin-bottom: 0; }
+
+        /* REVIEWS */
+        .review-summary { display: flex; align-items: center; gap: 16px; padding: 20px; background: linear-gradient(135deg, #fffbeb, #fff7ed); border-radius: 14px; margin-bottom: 20px; border: 1px solid #fde68a; }
+        .review-score { font-size: 2.4rem; font-weight: 800; color: var(--dark); font-family: 'Baloo 2', cursive; line-height: 1; }
+        .review-stars { color: var(--accent-yellow); font-size: 1.2rem; letter-spacing: 2px; }
+        .review-count { font-size: 0.85rem; color: var(--text-light); }
+        .review-item { padding: 18px 0; border-bottom: 1px solid #f1f5f9; }
+        .review-item:last-child { border-bottom: none; }
+        .review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .review-author { font-weight: 600; font-size: 0.92rem; color: var(--dark); }
+        .review-date { font-size: 0.8rem; color: var(--text-light); }
+        .review-text { font-size: 0.9rem; color: var(--text-light); line-height: 1.8; }
+
+        /* SIDEBAR */
+        .sidebar-card { background: var(--white); border-radius: var(--radius); padding: 28px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); margin-bottom: 20px; border: 1px solid #eef2f7; }
+        .sidebar-card h3 { font-size: 1.1rem; color: var(--dark); margin-bottom: 16px; }
+
+        .contact-list { list-style: none; }
+        .contact-list li { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #f1f5f9; font-size: 0.9rem; }
+        .contact-list li:last-child { border-bottom: none; }
+        .contact-list .c-icon { font-size: 1.1rem; width: 36px; height: 36px; background: var(--bg-light); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .contact-list a { color: var(--secondary); font-weight: 500; }
+
+        .cta-sidebar { background: linear-gradient(135deg, var(--primary) 0%, var(--accent-orange) 100%); border-radius: var(--radius); padding: 28px; color: var(--white); text-align: center; }
+        .cta-sidebar h3 { color: var(--white); margin-bottom: 10px; }
+        .cta-sidebar p { font-size: 0.9rem; opacity: 0.9; margin-bottom: 20px; }
+        .cta-sidebar .btn { background: var(--white); color: var(--primary); font-weight: 700; width: 100%; justify-content: center; }
+        .cta-sidebar .btn:hover { transform: translateY(-2px); }
+
+        .map-placeholder { width: 100%; height: 200px; background: #e2e8f0; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-light); font-size: 0.9rem; margin-bottom: 16px; }
+
+        /* SIMILAR AGENCIES */
+        .similar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .similar-card { background: var(--white); border-radius: var(--radius); padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); border: 1px solid #eef2f7; transition: all 0.3s; }
+        .similar-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+        .similar-card h4 { font-size: 1rem; color: var(--dark); margin-bottom: 4px; }
+        .similar-card .s-region { font-size: 0.82rem; color: var(--text-light); margin-bottom: 10px; }
+        .similar-card .s-ofsted { font-size: 0.78rem; font-weight: 600; padding: 4px 10px; border-radius: 20px; display: inline-block; }
+
+        /* FOOTER */
+        .footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 60px 0 30px; margin-top: 60px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; display: flex; justify-content: space-between; font-size: 0.85rem; }
+
+        /* MOBILE NAV */
+        .mobile-nav { display: none; position: fixed; top: 80px; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 999; padding: 32px 24px; }
+        .mobile-nav.active { display: block; }
+        .mobile-nav a { display: block; padding: 16px 0; font-size: 1.2rem; font-weight: 500; border-bottom: 1px solid #eee; }
+        .mobile-nav .btn { margin-top: 24px; width: 100%; justify-content: center; }
+
+        /* ANIMATIONS */
+        .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        .dropdown .has-subdropdown{position:relative}.dropdown .has-subdropdown>a{display:flex;align-items:center;justify-content:space-between}.dropdown .has-subdropdown>a::after{content:"\203A";font-size:1rem;color:#94a3b8;margin-left:auto}.subdropdown{position:absolute;top:-12px;left:100%;min-width:220px;background:#fff;border-radius:12px;box-shadow:0 12px 48px rgba(0,0,0,0.12);padding:12px 0;opacity:0;visibility:hidden;transform:translateX(8px);transition:all 0.25s;z-index:101;border:1px solid rgba(0,0,0,0.06)}.has-subdropdown:hover .subdropdown{opacity:1;visibility:visible;transform:translateX(0)}.subdropdown a{display:block;padding:10px 20px;font-size:0.85rem;font-weight:500;color:#2d3748;transition:all 0.15s}.subdropdown a:hover{background:#f0f7ff;color:#e6007e;padding-left:24px}.subdropdown a::after{display:none!important}.subdropdown-label{padding:10px 20px 4px;font-size:0.72rem;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:0.5px}.subdropdown-label:not(:first-child){border-top:1px solid #eef2f7;margin-top:6px;padding-top:12px}
+        @media (max-width: 1024px) {
+            .profile-grid { grid-template-columns: 1fr; }
+            .similar-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links, .nav-cta { display: none; }
+            .mobile-toggle { display: flex; }
+            .profile-banner { height: 140px; }
+            .profile-main { padding: 0 20px 24px; }
+            .profile-top { flex-direction: column; }
+            .key-facts { grid-template-columns: 1fr; }
+            .similar-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+        }
+    
+        /* DROPDOWN */
+        .has-dropdown { position: relative; }
+        .has-dropdown > a { display: flex; align-items: center; gap: 4px; }
+        .has-dropdown > a::after { content: '▾'; font-size: 0.7rem; transition: transform 0.2s; }
+        .dropdown { position: absolute; top: 100%; left: -16px; min-width: 260px; background: var(--white, #fff); border-radius: 12px; box-shadow: 0 12px 48px rgba(0,0,0,0.12); padding: 12px 0; opacity: 0; visibility: hidden; transform: translateY(8px); transition: all 0.25s ease; z-index: 100; border: 1px solid rgba(0,0,0,0.06); }
+        .has-dropdown:hover .dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown a { display: block; padding: 10px 20px; font-size: 0.88rem; font-weight: 500; color: #2d3748; transition: all 0.15s; }
+        .dropdown a:hover { background: #f0f7ff; color: #e6007e; padding-left: 24px; }
+        .dropdown a::after { display: none; }
+        .dropdown-divider { height: 1px; background: #eef2f7; margin: 6px 0; }
+        .dropdown-label { padding: 8px 20px 4px; font-size: 0.72rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="index.html" class="logo"><img src="images/think-fostering-logo.webp" alt="Think Fostering" height="48" style="height:48px;width:auto;"></a>
+            <ul class="nav-links">
+                <li><a href="index.html">About Us</a></li>
+                <li class="has-dropdown"><a href="fostering.html">Fostering</a>
+                    <div class="dropdown">
+                        <a href="what-is-fostering.html">What Is Fostering?</a>
+                        <a href="why-become-a-foster-carer.html">Why Foster?</a>
+                        <a href="types-of-fostering.html">Types of Fostering</a>
+                        <a href="can-i-foster.html">Can I Foster?</a>
+                        <a href="how-to-become-a-foster-carer.html">Become a Foster Carer</a>
+                        <a href="fostering-process.html">The Fostering Process</a>
+                        <a href="fostering-form-f-assessment.html">Fostering Assessment</a>
+                        <a href="fostering-allowance-payment-for-fostering.html">Payment & Allowances</a>
+                        <a href="faqs.html">FAQs</a>
+                        <a href="transfer-fostering-agency.html">Transfer Agency</a>
+                    </div>
+                </li>
+                <li class="has-dropdown"><a href="find-an-agency.html#find-agency">Find an Agency</a>
+                    <div class="dropdown">
+                        <a href="find-an-agency.html#find-agency">Search All Agencies</a>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-label">By Region</div>
+                        <div class="has-subdropdown"><a href="fostering-agency-north-west.html">North West</a><div class="subdropdown"><div class="subdropdown-label">Greater Manchester</div><a href="fostering-in-manchester.html">Manchester</a><a href="fostering-in-bolton.html">Bolton</a><div class="subdropdown-label"><a href="fostering-in-lancashire.html" style="color:inherit;text-decoration:none">Lancashire</a></div><a href="fostering-in-preston.html">Preston</a><a href="fostering-in-blackburn.html">Blackburn</a><div class="subdropdown-label">Merseyside</div><a href="fostering-in-liverpool.html">Liverpool</a><a href="fostering-in-wirral.html">Wirral</a></div></div>
+                        
+                        <div class="has-subdropdown"><a href="fostering-in-yorkshire.html">Yorkshire &amp; Humber</a><div class="subdropdown"><div class="subdropdown-label">West Yorkshire</div><a href="#">Leeds</a><a href="fostering-in-bradford.html">Bradford</a><div class="subdropdown-label">South Yorkshire</div><a href="fostering-in-sheffield.html">Sheffield</a><a href="fostering-in-doncaster.html">Doncaster</a><div class="subdropdown-label">North Yorkshire</div><a href="fostering-in-york.html">York</a><a href="fostering-in-harrogate.html">Harrogate</a></div></div><div class="has-subdropdown"><a href="fostering-in-north-east.html">North East</a><div class="subdropdown"><div class="subdropdown-label">Tyne &amp; Wear</div><a href="fostering-in-newcastle.html">Newcastle</a><a href="fostering-in-sunderland.html">Sunderland</a><a href="fostering-in-gateshead.html">Gateshead</a><div class="subdropdown-label">County Durham</div><a href="fostering-in-durham.html">Durham</a><a href="fostering-in-darlington.html">Darlington</a><div class="subdropdown-label">Teesside</div><a href="fostering-in-middlesbrough.html">Middlesbrough</a><a href="fostering-in-stockton.html">Stockton</a></div></div>
+                        
+                        <a href="#">West Midlands</a>
+                        <a href="#">East Midlands</a>
+                        <div class="has-subdropdown"><a href="fostering-in-south-east.html">South East</a><div class="subdropdown"><div class="subdropdown-label">Kent &amp; Sussex</div><a href="fostering-in-brighton.html">Brighton</a><a href="fostering-in-canterbury.html">Canterbury</a><div class="subdropdown-label">Hampshire</div><a href="fostering-in-southampton.html">Southampton</a><a href="fostering-in-portsmouth.html">Portsmouth</a><div class="subdropdown-label">Home Counties</div><a href="fostering-in-oxford.html">Oxford</a><a href="fostering-in-reading.html">Reading</a></div></div>
+                        <a href="#">South West</a>
+                        <div class="has-subdropdown"><a href="fostering-in-london.html">London</a><div class="subdropdown"><div class="subdropdown-label">South London</div><a href="fostering-in-croydon.html">Croydon</a><a href="fostering-in-lewisham.html">Lewisham</a><div class="subdropdown-label">East London</div><a href="fostering-in-tower-hamlets.html">Tower Hamlets</a><a href="fostering-in-newham.html">Newham</a><div class="subdropdown-label">North London</div><a href="fostering-in-barnet.html">Barnet</a><a href="fostering-in-enfield.html">Enfield</a></div></div>
+                        <a href="#">East of England</a>
+                    </div>
+                </li>
+                <li><a href="transfer-fostering-agency.html">Transfer Agency</a></li>
+                <li><a href="#">News & Events</a></li>
+            </ul>
+            <div class="nav-cta"><a href="contact.html" class="btn btn-primary">Enquire Now</a></div>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+        </nav>
+    </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+    <a href="index.html">About Us</a>
+    <a href="what-is-fostering.html">Fostering</a>
+    <a href="find-an-agency.html#find-agency">Find an Agency</a>
+    <a href="faqs.html">FAQs</a>
+    <a href="#">News & Events</a>
+    <a href="contact.html" class="btn btn-primary">Enquire Now</a>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-inner">
+            <a href="index.html">Home</a>
+            <span>›</span>
+            <a href="find-an-agency.html#find-agency">Find an Agency</a>
+            <span>›</span>
+            <span>Bright Horizons Fostering</span>
+        </div>
+    </div>
+</div>
+
+<!-- PROFILE HEADER -->
+<div class="container">
+    <div class="profile-header fade-up">
+        <div class="profile-banner">
+            <div class="featured-ribbon">⭐ Featured Agency</div>
+        </div>
+        <div class="profile-main">
+            <div class="profile-logo-wrap">
+                <div class="logo-placeholder">🏠</div>
+            </div>
+            <div class="profile-top">
+                <div class="profile-info">
+                    <h1>Bright Horizons Fostering</h1>
+                    <div class="agency-type">Independent Fostering Agency (IFA)</div>
+                    <div style="margin-bottom:12px;">
+                        <span class="ofsted-badge ofsted-outstanding">✅ Ofsted: Outstanding</span>
+                    </div>
+                    <div class="profile-meta">
+                        <div class="profile-meta-item"><span class="icon">📍</span> London & South East</div>
+                        <div class="profile-meta-item"><span class="icon">📅</span> Est. 2008</div>
+                        <div class="profile-meta-item"><span class="icon">👨‍👩‍👧</span> 120+ Foster Families</div>
+                        <div class="profile-meta-item"><span class="icon">⭐</span> 4.8 / 5 Rating</div>
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    <a href="contact.html" class="btn btn-primary">Enquire About This Agency →</a>
+                    <a href="#" class="btn btn-secondary">Visit Website</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+    <div class="profile-grid">
+
+        <!-- LEFT COLUMN -->
+        <div>
+            <!-- ABOUT -->
+            <div class="card fade-up">
+                <h2>About Bright Horizons Fostering</h2>
+                <p>Bright Horizons Fostering is a specialist independent fostering agency based in London, providing therapeutic foster care placements across London and the South East of England. With over 15 years of experience supporting children and families, they are rated Outstanding by Ofsted for their commitment to safeguarding, training quality, and carer support.</p>
+                <p>The agency specialises in finding stable, loving placements for children with complex needs, including those who have experienced trauma, abuse, or neglect. Their therapeutic model is built around understanding each child's individual story and providing carers with the tools, training, and clinical support needed to create lasting positive change.</p>
+                <p>Bright Horizons is known for its close-knit, family-feel community where foster carers are valued as professionals and partners in every child's care journey. They maintain low social worker caseloads to ensure every carer receives dedicated, responsive support.</p>
+            </div>
+
+            <!-- KEY FACTS -->
+            <div class="card fade-up">
+                <h2>Key Facts</h2>
+                <div class="key-facts">
+                    <div class="fact-item"><div class="fact-label">Ofsted Rating</div><div class="fact-value">Outstanding</div></div>
+                    <div class="fact-item"><div class="fact-label">Agency Type</div><div class="fact-value">Independent (IFA)</div></div>
+                    <div class="fact-item"><div class="fact-label">Established</div><div class="fact-value">2008</div></div>
+                    <div class="fact-item"><div class="fact-label">Foster Families</div><div class="fact-value">120+</div></div>
+                    <div class="fact-item"><div class="fact-label">Head Office</div><div class="fact-value">London, SE1</div></div>
+                    <div class="fact-item"><div class="fact-label">24/7 Support</div><div class="fact-value">Yes</div></div>
+                </div>
+            </div>
+
+            <!-- FOSTERING TYPES -->
+            <div class="card fade-up">
+                <h2>Types of Fostering Offered</h2>
+                <div class="type-tags">
+                    <span class="type-tag active">Short-Term</span>
+                    <span class="type-tag active">Long-Term</span>
+                    <span class="type-tag active">Emergency</span>
+                    <span class="type-tag active">Respite Care</span>
+                    <span class="type-tag active">Parent & Child</span>
+                    <span class="type-tag active">Specialist / Therapeutic</span>
+                    <span class="type-tag">Sibling Groups</span>
+                    <span class="type-tag">Unaccompanied Minors</span>
+                </div>
+            </div>
+
+            <!-- REGIONS -->
+            <div class="card fade-up">
+                <h2>Regions Covered</h2>
+                <div class="region-list">
+                    <div class="region-chip">📍 Central London</div>
+                    <div class="region-chip">📍 South London</div>
+                    <div class="region-chip">📍 East London</div>
+                    <div class="region-chip">📍 North London</div>
+                    <div class="region-chip">📍 West London</div>
+                    <div class="region-chip">📍 Kent</div>
+                    <div class="region-chip">📍 Surrey</div>
+                    <div class="region-chip">📍 Sussex</div>
+                    <div class="region-chip">📍 Essex</div>
+                    <div class="region-chip">📍 Hertfordshire</div>
+                </div>
+            </div>
+
+            <!-- WHY CHOOSE -->
+            <div class="card fade-up">
+                <h2>Why Choose Bright Horizons?</h2>
+                <div class="strength-list">
+                    <div class="strength-item">
+                        <div class="strength-icon" style="background:#dcfce7;">🎓</div>
+                        <div><h4>Comprehensive Training Programme</h4><p>Over 40 training courses per year, including trauma-informed care, therapeutic parenting, first aid, and specialist topics tailored to placement needs.</p></div>
+                    </div>
+                    <div class="strength-item">
+                        <div class="strength-icon" style="background:#dbeafe;">🤝</div>
+                        <div><h4>Dedicated Support Team</h4><p>Every carer has a named supervising social worker with a low caseload, ensuring responsive, personalised support when you need it most.</p></div>
+                    </div>
+                    <div class="strength-item">
+                        <div class="strength-icon" style="background:#fce7f3;">📞</div>
+                        <div><h4>24/7 Out of Hours Support</h4><p>Round-the-clock telephone support from experienced practitioners, not an answering service. Real help, any time of day or night.</p></div>
+                    </div>
+                    <div class="strength-item">
+                        <div class="strength-icon" style="background:#fef9c3;">💰</div>
+                        <div><h4>Competitive Allowances</h4><p>Generous weekly allowances plus skills-based fees, birthday and holiday allowances, and full financial transparency with no hidden deductions.</p></div>
+                    </div>
+                    <div class="strength-item">
+                        <div class="strength-icon" style="background:#ede9fe;">🧠</div>
+                        <div><h4>Therapeutic Services</h4><p>In-house clinical psychologist and therapeutic team providing direct support to children and consultation to carers on complex placements.</p></div>
+                    </div>
+                    <div class="strength-item">
+                        <div class="strength-icon" style="background:#e0f2fe;">👥</div>
+                        <div><h4>Foster Carer Community</h4><p>Regular support groups, social events, and a buddy system pairing new carers with experienced mentors to build confidence and connection.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- REVIEWS -->
+            <div class="card fade-up">
+                <h2>Foster Carer Reviews</h2>
+                <div class="review-summary">
+                    <div class="review-score">4.8</div>
+                    <div>
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-count">Based on 47 reviews from foster carers</div>
+                    </div>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="review-author">Sarah M. — London</span>
+                        <span class="review-date">November 2025</span>
+                    </div>
+                    <div class="review-stars" style="font-size:0.9rem;margin-bottom:6px;">★★★★★</div>
+                    <div class="review-text">The support from Bright Horizons has been incredible. My supervising social worker genuinely cares and is always available when I need guidance. The training programme is the best I have experienced, and I feel valued as a professional, not just a number on a list.</div>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="review-author">James & Karen T. — Surrey</span>
+                        <span class="review-date">September 2025</span>
+                    </div>
+                    <div class="review-stars" style="font-size:0.9rem;margin-bottom:6px;">★★★★★</div>
+                    <div class="review-text">We transferred from another agency and the difference is night and day. The therapeutic support for our placement has been life-changing, and the 24/7 line is a real person who knows our situation. We cannot recommend them highly enough.</div>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="review-author">Priya D. — Kent</span>
+                        <span class="review-date">July 2025</span>
+                    </div>
+                    <div class="review-stars" style="font-size:0.9rem;margin-bottom:6px;">★★★★☆</div>
+                    <div class="review-text">As a single foster carer I was nervous about managing alone, but the buddy system paired me with a wonderful mentor who has been there every step of the way. Training is excellent, and I have never felt unsupported. Only wish the matching process had been a little faster.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN (SIDEBAR) -->
+        <div>
+            <!-- CTA -->
+            <div class="cta-sidebar fade-up">
+                <h3>Interested in this agency?</h3>
+                <p>Get in touch to learn more about fostering with Bright Horizons.</p>
+                <a href="contact.html" class="btn">Enquire Now →</a>
+            </div>
+
+            <!-- CONTACT -->
+            <div class="sidebar-card fade-up">
+                <h3>Contact Details</h3>
+                <ul class="contact-list">
+                    <li><span class="c-icon">📞</span><div><strong>Phone</strong><br><a href="tel:02071234567">020 7123 4567</a></div></li>
+                    <li><span class="c-icon">✉️</span><div><strong>Email</strong><br><a href="/cdn-cgi/l/email-protection#70191e161f30120219171804181f02190a1f1e035e1508111d001c155e131f1d"><span class="__cf_email__" data-cfemail="d1b8bfb7be91b3a3b8b6b9a5b9bea3b8abbebfa2ffb4a9b0bca1bdb4ffb2bebc">[email&#160;protected]</span></a></div></li>
+                    <li><span class="c-icon">🌐</span><div><strong>Website</strong><br><a href="#">www.brighthorizons-fostering.co.uk</a></div></li>
+                    <li><span class="c-icon">📍</span><div><strong>Address</strong><br>45 Foster Lane<br>London SE1 7AB</div></li>
+                </ul>
+            </div>
+
+            <!-- MAP -->
+            <div class="sidebar-card fade-up">
+                <h3>Location</h3>
+                <div class="map-placeholder">📍 Map will display here</div>
+                <p style="font-size:0.85rem;color:var(--text-light);">Serving London and the South East of England</p>
+            </div>
+
+            <!-- OFSTED REPORT -->
+            <div class="sidebar-card fade-up">
+                <h3>Ofsted Inspection</h3>
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+                    <span class="ofsted-badge ofsted-outstanding" style="font-size:0.82rem;">Outstanding</span>
+                </div>
+                <p style="font-size:0.88rem;color:var(--text-light);margin-bottom:12px;">Last inspected: March 2025</p>
+                <p style="font-size:0.88rem;color:var(--text-light);margin-bottom:16px;">Bright Horizons has maintained an Outstanding rating across three consecutive inspections since 2019.</p>
+                <a href="#" class="btn btn-secondary" style="width:100%;justify-content:center;font-size:0.85rem;padding:10px;">View Full Ofsted Report →</a>
+            </div>
+
+            <!-- ALLOWANCES -->
+            <div class="sidebar-card fade-up">
+                <h3>Allowance Guide</h3>
+                <div style="margin-bottom:12px;">
+                    <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f1f5f9;font-size:0.88rem;"><span style="color:var(--text-light);">Age 0-4</span><strong>£450 / week</strong></div>
+                    <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f1f5f9;font-size:0.88rem;"><span style="color:var(--text-light);">Age 5-10</span><strong>£480 / week</strong></div>
+                    <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f1f5f9;font-size:0.88rem;"><span style="color:var(--text-light);">Age 11-15</span><strong>£520 / week</strong></div>
+                    <div style="display:flex;justify-content:space-between;padding:10px 0;font-size:0.88rem;"><span style="color:var(--text-light);">Age 16-18</span><strong>£550 / week</strong></div>
+                </div>
+                <p style="font-size:0.82rem;color:var(--text-light);">Plus skills-based fees, holiday allowances and birthday payments. Contact the agency for full details.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SIMILAR AGENCIES -->
+    <div class="card fade-up" style="margin-top:8px;">
+        <h2>Similar Agencies in Your Area</h2>
+        <div class="similar-grid">
+            <a href="#" class="similar-card">
+                <h4>Compass Fostering</h4>
+                <div class="s-region">📍 London & South East</div>
+                <span class="s-ofsted" style="background:#dbeafe;color:#1d4ed8;">Good</span>
+            </a>
+            <a href="#" class="similar-card">
+                <h4>Foster Care Associates</h4>
+                <div class="s-region">📍 London, Midlands & South</div>
+                <span class="s-ofsted" style="background:#dcfce7;color:#15803d;">Outstanding</span>
+            </a>
+            <a href="#" class="similar-card">
+                <h4>National Fostering Agency</h4>
+                <div class="s-region">📍 Nationwide</div>
+                <span class="s-ofsted" style="background:#dbeafe;color:#1d4ed8;">Good</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;margin-top:20px;font-size:0.82rem;color:rgba(255,255,255,0.45);text-align:center;line-height:1.7"><strong style="color:rgba(255,255,255,0.6)">Think Fostering</strong> &middot; 128 City Road, London, EC1V 2NX &middot; <a href="tel:08001234567" style="color:rgba(255,255,255,0.5)">0800 123 4567</a> &middot; <a href="/cdn-cgi/l/email-protection#2b434e4747446b5f434245404d44585f4e5942454c054844055e40" style="color:rgba(255,255,255,0.5)"><span class="__cf_email__" data-cfemail="f098959c9c9fb08498999e9b969f83849582999e97de939fde859b">[email&#160;protected]</span></a></div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Think Fostering Ltd. All rights reserved. | Last updated: March 2026</span>
+            <span>Made with &#128155; for foster families</span>
+        </div>
+    </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    window.addEventListener('scroll', function() {
+        document.getElementById('header').classList.toggle('scrolled', window.scrollY > 20);
+  var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target)}})},{threshold:0.1});
+document.querySelectorAll(".fade-up").forEach(function(el){observer.observe(el)});
+</script>
+</body>
+</html>

@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fostering Agencies North West | Think Fostering</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <meta name="description" content="Fostering agencies in the North West. Compare foster care agencies across Manchester, Liverpool, Lancashire and the North West.">
+    <meta property="og:title" content="Fostering Agencies North West | Think Fostering">
+    <meta property="og:description" content="Fostering agencies in the North West. Compare foster care agencies across Manchester, Liverpool, Lancashire and the Nort">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://thinkfostering.co.uk/fostering-agency-north-west">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fostering Agencies in the North West | Think Fostering">
+    <meta name="twitter:description" content="Find trusted fostering agencies in the North West of England. Compare agencies in Manchester, Liverpool, Lancashire, Cheshire and Cumbria.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: #2d3748; line-height: 1.6; overflow-x: hidden; background: #fff; }
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+
+        :root {
+            --primary: #e6007e;
+            --primary-dark: #c4006b;
+            --secondary: #00b4d8;
+            --secondary-dark: #0096b7;
+            --accent-green: #7ac943;
+            --accent-yellow: #ffd100;
+            --accent-orange: #ff6b35;
+            --dark: #1a1a2e;
+            --text: #2d3748;
+            --text-light: #64748b;
+            --bg-light: #f0f7ff;
+            --white: #ffffff;
+            --radius: 16px;
+            --shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .section-pad { padding: 80px 0; }
+        .text-center { text-align: center; }
+        h1, h2, h3, h4 { font-family: 'Baloo 2', cursive; line-height: 1.2; }
+        h1 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; }
+        h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; }
+        h3 { font-size: 1.2rem; font-weight: 700; }
+        .highlight-pink { color: var(--primary); }
+        .highlight-blue { color: var(--secondary); }
+
+        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; border-radius: 50px; font-weight: 600; font-size: 0.95rem; border: none; cursor: pointer; transition: all 0.3s ease; font-family: 'Inter', sans-serif; }
+        .btn-primary { background: var(--primary); color: var(--white); box-shadow: 0 4px 20px rgba(230,0,126,0.3); }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(230,0,126,0.4); }
+        .btn-secondary { background: var(--white); color: var(--primary); border: 2px solid var(--primary); }
+        .btn-secondary:hover { background: #fff0f6; }
+
+        /* HEADER */
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.06); }
+        .header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+        .nav { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+        .logo { display: flex; align-items: center; gap: 10px; }
+        .logo-icon { width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary), var(--accent-orange)); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+        .logo-icon svg { width: 28px; height: 28px; }
+        .logo-text { font-family: 'Baloo 2', cursive; font-size: 1.6rem; font-weight: 800; color: var(--dark); }
+        .logo-text span { color: var(--primary); }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { font-weight: 500; font-size: 0.95rem; color: var(--text); transition: color 0.2s; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-cta .btn { padding: 12px 28px; font-size: 0.9rem; }
+        .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; }
+        .mobile-toggle span { width: 26px; height: 2.5px; background: var(--dark); border-radius: 2px; }
+        .mobile-nav { display: none; position: fixed; top: 80px; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 999; padding: 32px 24px; }
+        .mobile-nav.active { display: block; }
+        .mobile-nav a { display: block; padding: 16px 0; font-size: 1.2rem; font-weight: 500; border-bottom: 1px solid #eee; }
+        .mobile-nav .btn { margin-top: 24px; width: 100%; justify-content: center; }
+
+        /* BREADCRUMB */
+        .breadcrumb { padding-top: 96px; padding-bottom: 8px; }
+        .breadcrumb-inner { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-light); flex-wrap: wrap; }
+        .breadcrumb-inner a { color: var(--secondary); font-weight: 500; }
+        .breadcrumb-inner a:hover { color: var(--primary); }
+
+        /* PAGE HERO */
+        .page-hero { background: linear-gradient(135deg, #eef6ff 0%, #fff0f5 50%, #fff9e6 100%); position: relative; overflow: hidden; padding: 40px 0 60px; }
+        .page-hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(230,0,126,0.06) 0%, transparent 70%); border-radius: 50%; }
+        .page-hero-content { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+        .page-hero-text { }
+        .page-hero-image { border-radius: 20px; overflow: hidden; aspect-ratio: 4/5; max-height: 520px; }
+        .page-hero-image img { width: 100%; height: 100%; object-fit: cover; }
+        .page-hero h1 { color: var(--dark); margin-bottom: 8px; }
+        .page-hero .hero-h2 { font-size: 25px; font-weight: 700; color: var(--text-light); margin-bottom: 20px; }
+        .page-hero p { font-size: 1.05rem; color: var(--text-light); line-height: 1.85; margin-bottom: 16px; }
+        .page-hero .hero-stats { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+        .page-hero .stat { text-align: center; }
+        .page-hero .stat-number { font-family: 'Baloo 2', cursive; font-size: 2rem; font-weight: 800; color: var(--primary); line-height: 1; }
+        .page-hero .stat-label { font-size: 0.82rem; color: var(--text-light); font-weight: 500; }
+
+        .colour-strip { height: 6px; background: linear-gradient(90deg, var(--primary), var(--accent-orange), var(--accent-yellow), var(--accent-green), var(--secondary)); }
+
+        /* INTRO TEXT */
+        .intro-section { padding: 64px 0; }
+        .intro-section p { font-size: 1rem; color: var(--text-light); line-height: 1.9; margin-bottom: 18px; }
+        .intro-section p:last-child { margin-bottom: 0; }
+
+        /* AGENCY CARDS */
+        .agencies-section { background: var(--bg-light); }
+        .agency-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; margin-top: 36px; }
+        .agency-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.04); border: 1px solid #eef2f7; transition: all 0.3s; }
+        .agency-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+        .agency-card-top { height: 6px; }
+        .agency-card-body { padding: 24px; }
+        .agency-card-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 16px; }
+        .agency-card h3 { color: var(--dark); margin-bottom: 4px; font-size: 1.15rem; }
+        .agency-card .agency-location { font-size: 0.85rem; color: var(--text-light); margin-bottom: 12px; display: flex; align-items: center; gap: 4px; }
+        .agency-card .agency-desc { font-size: 0.9rem; color: var(--text-light); line-height: 1.75; margin-bottom: 16px; }
+        .agency-card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+        .agency-card-tags .tag { padding: 4px 12px; border-radius: 20px; font-size: 0.76rem; font-weight: 600; }
+        .tag-ofsted-outstanding { background: #dcfce7; color: #15803d; }
+        .tag-ofsted-good { background: #dbeafe; color: #1d4ed8; }
+        .tag-featured { background: linear-gradient(135deg, #ffd100, #ff6b35); color: #fff; }
+        .tag-type { background: #f0f7ff; color: var(--secondary-dark); }
+        .agency-card-actions { display: flex; gap: 10px; }
+        .agency-card-actions .btn { padding: 10px 20px; font-size: 0.85rem; flex: 1; justify-content: center; }
+
+        /* LOCATION SECTIONS - ALTERNATING */
+        .location-section { padding: 72px 0; border-bottom: 1px solid #eef2f7; }
+        .location-section:last-of-type { border-bottom: none; }
+        .location-row { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+        .location-row.reverse { direction: rtl; }
+        .location-row.reverse > * { direction: ltr; }
+        .location-img { border-radius: 20px; overflow: hidden; aspect-ratio: 4/3; background: #e2e8f0; }
+        .location-img img { width: 100%; height: 100%; object-fit: cover; }
+        .location-text h3 { font-size: 1.4rem; color: var(--dark); margin-bottom: 12px; }
+        .location-text p { font-size: 0.94rem; color: var(--text-light); line-height: 1.85; margin-bottom: 14px; }
+        .location-text .location-link { color: var(--primary); font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 4px; }
+        .location-text .location-link:hover { gap: 8px; }
+
+        /* BLOG SECTION */
+        .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 36px; }
+        .blog-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.04); border: 1px solid #eef2f7; transition: all 0.3s; }
+        .blog-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+        .blog-card-img { aspect-ratio: 16/9; background: #e2e8f0; overflow: hidden; }
+        .blog-card-img img { width: 100%; height: 100%; object-fit: cover; }
+        .blog-card-body { padding: 22px; }
+        .blog-card .blog-tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-bottom: 10px; }
+        .blog-card h3 { font-size: 1.05rem; color: var(--dark); margin-bottom: 8px; line-height: 1.4; }
+        .blog-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.7; margin-bottom: 14px; }
+        .blog-card .read-more { color: var(--primary); font-weight: 600; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 4px; }
+
+        /* FAQ */
+        .faq-section { background: var(--bg-light); }
+        .faq-item { background: var(--white); border-radius: var(--radius); margin-bottom: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); overflow: hidden; border: 1px solid #eef2f7; transition: box-shadow 0.3s; }
+        .faq-item:hover { box-shadow: var(--shadow); }
+        .faq-question { width: 100%; padding: 22px 28px; background: none; border: none; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; color: var(--dark); text-align: left; gap: 16px; transition: color 0.2s; }
+        .faq-question:hover { color: var(--primary); }
+        .faq-icon { width: 32px; height: 32px; border-radius: 50%; background: var(--bg-light); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: var(--primary); flex-shrink: 0; transition: all 0.3s; }
+        .faq-item.open .faq-icon { background: var(--primary); color: var(--white); transform: rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .faq-item.open .faq-answer { max-height: 800px; }
+        .faq-answer p { padding: 0 28px 12px; font-size: 0.94rem; color: var(--text-light); line-height: 1.85; }
+        .faq-answer p:last-of-type { padding-bottom: 16px; }
+        .faq-bullets { list-style: none; padding: 0 28px 24px; margin: 0; }
+        .faq-bullets li { font-size: 0.88rem; color: var(--secondary-dark); font-weight: 600; padding: 6px 0; display: flex; align-items: flex-start; gap: 8px; line-height: 1.6; }
+        .faq-bullets li img.tick-icon { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; }
+
+        /* CTA */
+        .cta-banner { background: linear-gradient(135deg, var(--primary) 0%, var(--accent-orange) 100%); color: var(--white); text-align: center; padding: 80px 24px; }
+        .cta-banner h2 { color: var(--white); margin-bottom: 16px; }
+        .cta-banner p { font-size: 1.15rem; opacity: 0.9; margin-bottom: 36px; max-width: 560px; margin-left: auto; margin-right: auto; }
+        .cta-banner .btn { background: var(--white); color: var(--primary); font-weight: 700; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+        .cta-banner .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+
+        /* FOOTER */
+        .footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 80px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 60px; }
+        .footer-brand p { font-size: 0.9rem; line-height: 1.8; max-width: 300px; margin-top: 16px; }
+        .footer h4 { color: var(--white); font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; margin-bottom: 20px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { font-size: 0.9rem; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--primary); }
+        .footer-social { display: flex; gap: 12px; margin-top: 20px; }
+        .footer-social a { width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: background 0.3s; }
+        .footer-social a:hover { background: var(--primary); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; }
+
+        /* ANIMATIONS */
+        .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        
+        .nw-areas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px}
+        .nw-area-card{background:var(--white);border-radius:14px;padding:18px 20px;box-shadow:0 2px 8px rgba(0,0,0,0.04);border:1px solid #eef2f7;transition:all 0.3s;display:flex;align-items:center;gap:10px;font-size:0.9rem;font-weight:600;color:var(--dark)}
+        .nw-area-card:hover{transform:translateY(-3px);box-shadow:0 4px 24px rgba(0,0,0,0.08);color:var(--primary)}
+        .nw-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+
+        .dropdown .has-subdropdown{position:relative}.dropdown .has-subdropdown>a{display:flex;align-items:center;justify-content:space-between}.dropdown .has-subdropdown>a::after{content:"\203A";font-size:1rem;color:#94a3b8;margin-left:auto}.subdropdown{position:absolute;top:-12px;left:100%;min-width:220px;background:#fff;border-radius:12px;box-shadow:0 12px 48px rgba(0,0,0,0.12);padding:12px 0;opacity:0;visibility:hidden;transform:translateX(8px);transition:all 0.25s;z-index:101;border:1px solid rgba(0,0,0,0.06)}.has-subdropdown:hover .subdropdown{opacity:1;visibility:visible;transform:translateX(0)}.subdropdown a{display:block;padding:10px 20px;font-size:0.85rem;font-weight:500;color:#2d3748;transition:all 0.15s}.subdropdown a:hover{background:#f0f7ff;color:#e6007e;padding-left:24px}.subdropdown a::after{display:none!important}.subdropdown-label{padding:10px 20px 4px;font-size:0.72rem;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:0.5px}.subdropdown-label:not(:first-child){border-top:1px solid #eef2f7;margin-top:6px;padding-top:12px}
+        @media (max-width: 1024px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .location-row { grid-template-columns: 1fr; gap: 28px; }
+            .location-row.reverse { direction: ltr; }
+            .page-hero-content { grid-template-columns: 1fr; }
+            .page-hero-image { max-height: 300px; aspect-ratio: 16/9; }
+        }
+        @media (max-width: 768px) {
+            .section-pad { padding: 64px 0; }
+            .nav-links, .nav-cta { display: none; }
+            .mobile-toggle { display: flex; }
+            .agency-grid { grid-template-columns: 1fr; }
+            .blog-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+            .page-hero .hero-stats { gap: 20px; }
+        }
+    
+        /* DROPDOWN */
+        .has-dropdown { position: relative; }
+        .has-dropdown > a { display: flex; align-items: center; gap: 4px; }
+        .has-dropdown > a::after { content: '▾'; font-size: 0.7rem; transition: transform 0.2s; }
+        .dropdown { position: absolute; top: 100%; left: -16px; min-width: 260px; background: var(--white, #fff); border-radius: 12px; box-shadow: 0 12px 48px rgba(0,0,0,0.12); padding: 12px 0; opacity: 0; visibility: hidden; transform: translateY(8px); transition: all 0.25s ease; z-index: 100; border: 1px solid rgba(0,0,0,0.06); }
+        .has-dropdown:hover .dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown a { display: block; padding: 10px 20px; font-size: 0.88rem; font-weight: 500; color: #2d3748; transition: all 0.15s; }
+        .dropdown a:hover { background: #f0f7ff; color: #e6007e; padding-left: 24px; }
+        .dropdown a::after { display: none; }
+        .dropdown-divider { height: 1px; background: #eef2f7; margin: 6px 0; }
+        .dropdown-label { padding: 8px 20px 4px; font-size: 0.72rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; }
+    </style>
+
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Think Fostering", "url": "https://thinkfostering.co.uk", "description": "UK fostering comparison platform helping prospective foster carers find and compare Ofsted-registered fostering agencies.", "sameAs": []}</script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <img src="images/think-fostering-logo.webp" alt="Think Fostering" height="48" style="height:48px;width:auto;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">About Us</a></li>
+                <li class="has-dropdown"><a href="fostering.html">Fostering</a>
+                    <div class="dropdown">
+                        <a href="what-is-fostering.html">What Is Fostering?</a>
+                        <a href="why-become-a-foster-carer.html">Why Foster?</a>
+                        <a href="types-of-fostering.html">Types of Fostering</a>
+                        <a href="can-i-foster.html">Can I Foster?</a>
+                        <a href="how-to-become-a-foster-carer.html">Become a Foster Carer</a>
+                        <a href="fostering-process.html">The Fostering Process</a>
+                        <a href="fostering-form-f-assessment.html">Fostering Assessment</a>
+                        <a href="fostering-allowance-payment-for-fostering.html">Payment & Allowances</a>
+                        <a href="faqs.html">FAQs</a>
+                        <a href="transfer-fostering-agency.html">Transfer Agency</a>
+                    </div>
+                </li>
+                <li class="has-dropdown"><a href="find-an-agency.html#find-agency">Find an Agency</a>
+                    <div class="dropdown">
+                        <a href="find-an-agency.html#find-agency">Search All Agencies</a>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-label">By Region</div>
+                        <div class="has-subdropdown"><a href="fostering-agency-north-west.html">North West</a><div class="subdropdown"><div class="subdropdown-label">Greater Manchester</div><a href="fostering-in-manchester.html">Manchester</a><a href="fostering-in-bolton.html">Bolton</a><div class="subdropdown-label"><a href="fostering-in-lancashire.html" style="color:inherit;text-decoration:none">Lancashire</a></div><a href="fostering-in-preston.html">Preston</a><a href="fostering-in-blackburn.html">Blackburn</a><div class="subdropdown-label">Merseyside</div><a href="fostering-in-liverpool.html">Liverpool</a><a href="fostering-in-wirral.html">Wirral</a></div></div>
+                        
+                        <div class="has-subdropdown"><a href="fostering-in-yorkshire.html">Yorkshire &amp; Humber</a><div class="subdropdown"><div class="subdropdown-label">West Yorkshire</div><a href="#">Leeds</a><a href="fostering-in-bradford.html">Bradford</a><div class="subdropdown-label">South Yorkshire</div><a href="fostering-in-sheffield.html">Sheffield</a><a href="fostering-in-doncaster.html">Doncaster</a><div class="subdropdown-label">North Yorkshire</div><a href="fostering-in-york.html">York</a><a href="fostering-in-harrogate.html">Harrogate</a></div></div><div class="has-subdropdown"><a href="fostering-in-north-east.html">North East</a><div class="subdropdown"><div class="subdropdown-label">Tyne &amp; Wear</div><a href="fostering-in-newcastle.html">Newcastle</a><a href="fostering-in-sunderland.html">Sunderland</a><a href="fostering-in-gateshead.html">Gateshead</a><div class="subdropdown-label">County Durham</div><a href="fostering-in-durham.html">Durham</a><a href="fostering-in-darlington.html">Darlington</a><div class="subdropdown-label">Teesside</div><a href="fostering-in-middlesbrough.html">Middlesbrough</a><a href="fostering-in-stockton.html">Stockton</a></div></div>
+                        
+                        <a href="#">West Midlands</a>
+                        <a href="#">East Midlands</a>
+                        <div class="has-subdropdown"><a href="fostering-in-south-east.html">South East</a><div class="subdropdown"><div class="subdropdown-label">Kent &amp; Sussex</div><a href="fostering-in-brighton.html">Brighton</a><a href="fostering-in-canterbury.html">Canterbury</a><div class="subdropdown-label">Hampshire</div><a href="fostering-in-southampton.html">Southampton</a><a href="fostering-in-portsmouth.html">Portsmouth</a><div class="subdropdown-label">Home Counties</div><a href="fostering-in-oxford.html">Oxford</a><a href="fostering-in-reading.html">Reading</a></div></div>
+                        <a href="#">South West</a>
+                        <div class="has-subdropdown"><a href="fostering-in-london.html">London</a><div class="subdropdown"><div class="subdropdown-label">South London</div><a href="fostering-in-croydon.html">Croydon</a><a href="fostering-in-lewisham.html">Lewisham</a><div class="subdropdown-label">East London</div><a href="fostering-in-tower-hamlets.html">Tower Hamlets</a><a href="fostering-in-newham.html">Newham</a><div class="subdropdown-label">North London</div><a href="fostering-in-barnet.html">Barnet</a><a href="fostering-in-enfield.html">Enfield</a></div></div>
+                        <a href="#">East of England</a>
+                    </div>
+                </li>
+                <li><a href="transfer-fostering-agency.html">Transfer Agency</a></li>
+                <li><a href="#news">News & Events</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="contact-us.html" class="btn btn-primary">Enquire Now</a>
+            </div>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+        </nav>
+    </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+    <a href="index.html">About Us</a>
+    <a href="what-is-fostering.html">Fostering</a>
+    <a href="find-an-agency.html#find-agency">Find an Agency</a>
+    <a href="faqs.html">FAQs</a>
+    <a href="#">News & Events</a>
+    <a href="contact-us.html" class="btn btn-primary">Enquire Now</a>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-inner">
+            <a href="index.html">Home</a><span>›</span>
+            <a href="find-an-agency.html#find-agency">Find an Agency</a><span>›</span>
+            <span>North West England</span>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <div class="container">
+        <div class="page-hero-content fade-up">
+            <div class="page-hero-text">
+                <h1>Fostering Agencies in the <span class="highlight-pink">North West</span></h1>
+                <h2 class="hero-h2">Foster Care Agency North West England</h2>
+                <p>The North West of England is home to some of the most dedicated and highly rated fostering agencies in the country. Whether you are based in Manchester, Liverpool, Lancashire, Cheshire or Cumbria, Think Fostering helps you compare trusted foster care agencies in your area, review their Ofsted inspection reports, and take the first step towards becoming a foster carer.</p>
+                <p>With thousands of children across the North West currently in need of safe, loving foster homes, there has never been a more important time to explore fostering. The agencies listed below are all registered with Ofsted and provide comprehensive training, professional support, and competitive fostering allowances to help you succeed in your fostering journey.</p>
+                <div class="hero-stats">
+                    <div class="stat"><div class="stat-number">8,500+</div><div class="stat-label">Children in care<br>in the North West</div></div>
+                    <div class="stat"><div class="stat-number">45+</div><div class="stat-label">Registered fostering<br>agencies</div></div>
+                    <div class="stat"><div class="stat-number">100%</div><div class="stat-label">Free to search<br>and enquire</div></div>
+                </div>
+            </div>
+            <div class="page-hero-image">
+                <img src="images/fostering-agency-north-west-hero.webp" alt="Fostering in North West - find a foster care agency near you" width="800" height="1000">
+            </div>
+        </div>
+    </div>
+</section>
+<div class="colour-strip"></div>
+
+<!-- AGENCY PORTFOLIO -->
+<section class="agencies-section section-pad">
+    <div class="container">
+        <div class="text-center fade-up">
+            <h2>Foster Care Agencies in the <span class="highlight-pink">North West</span></h2>
+            <p style="font-size:1.05rem;color:var(--text-light);max-width:640px;margin:16px auto 0;">Trusted, Ofsted-registered fostering agencies serving Manchester, Liverpool, Lancashire, Cheshire and Cumbria</p>
+        </div>
+
+        <div class="agency-grid">
+            <!-- Agency 1 -->
+            <div class="agency-card fade-up">
+                <div class="agency-card-top" style="background:linear-gradient(90deg,var(--primary),var(--accent-orange));"></div>
+                <div class="agency-card-body">
+                    <div class="agency-card-icon" style="background:#fce7f3;">🏠</div>
+                    <h3>Fostering First North West</h3>
+                    <div class="agency-location">📍 Manchester & Greater Manchester</div>
+                    <p class="agency-desc">A leading independent fostering agency providing high-quality foster care placements across Greater Manchester, with specialist therapeutic support and comprehensive carer training programmes.</p>
+                    <div class="agency-card-tags">
+                        <span class="tag tag-ofsted-outstanding">Ofsted: Outstanding</span>
+                        <span class="tag tag-featured">⭐ Featured</span>
+                        <span class="tag tag-type">IFA</span>
+                    </div>
+                    <div class="agency-card-actions">
+                        <a href="agency-profile-test.html" class="btn btn-primary">View Profile →</a>
+                        <a href="become-a-foster-carer.html" class="btn btn-secondary">Enquire</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agency 2 -->
+            <div class="agency-card fade-up">
+                <div class="agency-card-top" style="background:linear-gradient(90deg,var(--secondary),#0096b7);"></div>
+                <div class="agency-card-body">
+                    <div class="agency-card-icon" style="background:#dbeafe;">💙</div>
+                    <h3>Compass Fostering Lancashire</h3>
+                    <div class="agency-location">📍 Lancashire & Merseyside</div>
+                    <p class="agency-desc">Dedicated to matching children with caring families across Lancashire and Merseyside, providing outstanding support, regular supervision and competitive fostering allowances.</p>
+                    <div class="agency-card-tags">
+                        <span class="tag tag-ofsted-good">Ofsted: Good</span>
+                        <span class="tag tag-featured">⭐ Featured</span>
+                        <span class="tag tag-type">IFA</span>
+                    </div>
+                    <div class="agency-card-actions">
+                        <a href="agency-profile-test.html" class="btn btn-primary">View Profile →</a>
+                        <a href="become-a-foster-carer.html" class="btn btn-secondary">Enquire</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agency 3 -->
+            <div class="agency-card fade-up">
+                <div class="agency-card-top" style="background:linear-gradient(90deg,var(--accent-green),#5ba832);"></div>
+                <div class="agency-card-body">
+                    <div class="agency-card-icon" style="background:#dcfce7;">🌿</div>
+                    <h3>Northern Care Fostering</h3>
+                    <div class="agency-location">📍 Cheshire & North Wales Border</div>
+                    <p class="agency-desc">A family-focused fostering agency committed to building brighter futures through compassionate placements, specialist training and 24/7 carer support across Cheshire and surrounding areas.</p>
+                    <div class="agency-card-tags">
+                        <span class="tag tag-ofsted-outstanding">Ofsted: Outstanding</span>
+                        <span class="tag tag-type">IFA</span>
+                    </div>
+                    <div class="agency-card-actions">
+                        <a href="agency-profile-test.html" class="btn btn-primary">View Profile →</a>
+                        <a href="become-a-foster-carer.html" class="btn btn-secondary">Enquire</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agency 4 -->
+            <div class="agency-card fade-up">
+                <div class="agency-card-top" style="background:linear-gradient(90deg,var(--accent-yellow),var(--accent-orange));"></div>
+                <div class="agency-card-body">
+                    <div class="agency-card-icon" style="background:#fef9c3;">☀️</div>
+                    <h3>Sunlight Foster Care</h3>
+                    <div class="agency-location">📍 Liverpool & Merseyside</div>
+                    <p class="agency-desc">An experienced fostering agency offering specialist placements for children with complex needs across Liverpool and Merseyside, with in-house therapeutic support and dedicated social workers.</p>
+                    <div class="agency-card-tags">
+                        <span class="tag tag-ofsted-good">Ofsted: Good</span>
+                        <span class="tag tag-type">IFA</span>
+                    </div>
+                    <div class="agency-card-actions">
+                        <a href="agency-profile-test.html" class="btn btn-primary">View Profile →</a>
+                        <a href="become-a-foster-carer.html" class="btn btn-secondary">Enquire</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agency 5 -->
+            <div class="agency-card fade-up">
+                <div class="agency-card-top" style="background:linear-gradient(90deg,#8b5cf6,#6d28d9);"></div>
+                <div class="agency-card-body">
+                    <div class="agency-card-icon" style="background:#ede9fe;">💜</div>
+                    <h3>Lakes & Dales Fostering</h3>
+                    <div class="agency-location">📍 Cumbria & Lake District</div>
+                    <p class="agency-desc">Providing foster care placements across Cumbria and the Lake District, specialising in rural and semi-rural fostering with strong links to local schools and community services.</p>
+                    <div class="agency-card-tags">
+                        <span class="tag tag-ofsted-good">Ofsted: Good</span>
+                        <span class="tag tag-type">IFA</span>
+                    </div>
+                    <div class="agency-card-actions">
+                        <a href="agency-profile-test.html" class="btn btn-primary">View Profile →</a>
+                        <a href="become-a-foster-carer.html" class="btn btn-secondary">Enquire</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agency 6 -->
+            <div class="agency-card fade-up">
+                <div class="agency-card-top" style="background:linear-gradient(90deg,var(--secondary),var(--accent-green));"></div>
+                <div class="agency-card-body">
+                    <div class="agency-card-icon" style="background:#e0f2fe;">🤝</div>
+                    <h3>Unity Fostering Services</h3>
+                    <div class="agency-location">📍 Bolton, Wigan & North West</div>
+                    <p class="agency-desc">A growing fostering agency supporting carers across Bolton, Wigan and the wider North West region, offering flexible placements, competitive pay and a close-knit support community.</p>
+                    <div class="agency-card-tags">
+                        <span class="tag tag-ofsted-good">Ofsted: Good</span>
+                        <span class="tag tag-type">IFA</span>
+                    </div>
+                    <div class="agency-card-actions">
+                        <a href="agency-profile-test.html" class="btn btn-primary">View Profile →</a>
+                        <a href="become-a-foster-carer.html" class="btn btn-secondary">Enquire</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INTRO SEO TEXT -->
+<section class="intro-section">
+    <div class="container">
+        <h2 class="fade-up">Why Foster in the <span class="highlight-blue">North West</span> of England?</h2>
+        <p class="fade-up">The North West of England encompasses a diverse range of communities, from the vibrant cities of Manchester and Liverpool to the rural landscapes of Lancashire, Cumbria and the Lake District. Each area has its own unique fostering needs, and local agencies work closely with councils across Greater Manchester, Merseyside, Lancashire, Cheshire and Cumbria to place children in homes where they can thrive.</p>
+        <p class="fade-up">Fostering in the North West offers the opportunity to make a genuine difference to children who need stability, security and care. Independent fostering agencies in the region provide specialist support including therapeutic fostering, emergency placements, sibling group care, and dedicated training programmes designed to equip foster carers with the skills and confidence they need. Many agencies in the North West are rated Outstanding or Good by Ofsted, reflecting the high standard of care and professional support available to foster families across the region.</p>
+        <p class="fade-up">Whether you live in a city centre flat in Manchester or a countryside home in the Ribble Valley, there is a fostering agency that can support your journey. Browse the agencies below, compare what they offer, and get in touch with those that feel right for you. Every enquiry is free, confidential, and without obligation.</p>
+    </div>
+</section>
+
+
+
+<!-- LOCATION SECTIONS - ALTERNATING IMAGE/TEXT -->
+<section class="section-pad">
+    <div class="container">
+        <div class="text-center fade-up" style="margin-bottom:56px;">
+            <h2>Fostering Across the <span class="highlight-pink">North West</span></h2>
+            <p style="font-size:1.05rem;color:var(--text-light);max-width:640px;margin:16px auto 0;">Explore fostering opportunities in each area of the North West</p>
+        </div>
+
+        <!-- Manchester -->
+        <div class="location-section">
+            <div class="location-row fade-up">
+                <div class="location-img">
+                    <img src="images/fostering-agency-north-west-foster-care-agencies.webp" alt="Foster care agencies in North West - compare fostering agencies" width="600" height="450" loading="lazy">
+                </div>
+                <div class="location-text">
+                    <h3>Fostering in <span class="highlight-pink">Manchester</span> & Greater Manchester</h3>
+                    <p>Manchester is the largest city in the North West and home to a significant number of children who need foster care placements. Greater Manchester encompasses ten local authority areas including Salford, Stockport, Tameside, Oldham, Rochdale, Bury, Bolton, Wigan, Trafford and the city of Manchester itself. Each area has its own fostering needs, and independent agencies work closely with all ten councils to provide placements.</p>
+                    <p>Foster carers in Manchester benefit from access to excellent training facilities, diverse placement opportunities, and strong local support networks. The city's cultural diversity means agencies actively seek carers from a wide range of backgrounds to provide culturally matched placements for children in care.</p>
+                    <a href="find-an-agency.html#find-agency" class="location-link">Find agencies in Manchester →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Liverpool -->
+        <div class="location-section">
+            <div class="location-row reverse fade-up">
+                <div class="location-img">
+                    <img src="images/fostering-agency-north-west-fostering-allowance.webp" alt="Fostering allowance North West - foster carer pay and support" width="600" height="450" loading="lazy">
+                </div>
+                <div class="location-text">
+                    <h3>Fostering in <span class="highlight-blue">Liverpool</span> & Merseyside</h3>
+                    <p>Liverpool and the wider Merseyside region, including Wirral, Sefton, Knowsley and St Helens, have a strong tradition of community and family values that make the area particularly welcoming for foster carers. Merseyside has consistently high demand for foster placements, particularly for teenagers, sibling groups, and children with additional needs.</p>
+                    <p>Fostering agencies in Liverpool offer dedicated support teams, regular peer group meetings, and access to specialist therapeutic services. Many agencies in the Merseyside area maintain Ofsted ratings of Good or Outstanding, reflecting the commitment to high-quality care and professional development for foster carers.</p>
+                    <a href="find-an-agency.html#find-agency" class="location-link">Find agencies in Liverpool →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lancashire -->
+        <div class="location-section">
+            <div class="location-row fade-up">
+                <div class="location-img">
+                    <img src="images/fostering-agency-north-west-foster-care-agencies.webp" alt="Fostering agency Lancashire countryside">
+                </div>
+                <div class="location-text">
+                    <h3>Fostering in <span class="highlight-pink">Lancashire</span></h3>
+                    <p>Lancashire is one of the largest counties in England, stretching from the industrial towns of Blackburn, Burnley and Preston to the seaside resorts of Blackpool and Morecambe, and the rural beauty of the Ribble Valley and Forest of Bowland. The county has a diverse and growing need for foster carers across all placement types.</p>
+                    <p>Independent fostering agencies operating across Lancashire provide comprehensive support packages including regular home visits, accredited training programmes, and 24-hour out-of-hours support. Foster carers in Lancashire benefit from a strong sense of community, and many agencies organise social events and activity days for foster families throughout the year.</p>
+                    <a href="find-an-agency.html#find-agency" class="location-link">Find agencies in Lancashire →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cheshire -->
+        <div class="location-section">
+            <div class="location-row reverse fade-up">
+                <div class="location-img">
+                    <img src="images/fostering-agency-north-west-foster-care-agencies.webp" alt="Foster care agency Cheshire village">
+                </div>
+                <div class="location-text">
+                    <h3>Fostering in <span class="highlight-blue">Cheshire</span></h3>
+                    <p>Cheshire, encompassing Cheshire East, Cheshire West and Chester, Warrington and Halton, is a county that blends historic market towns with modern communities. The area has a steady demand for foster carers, particularly for short-term and respite placements, as well as long-term foster homes for older children and teenagers.</p>
+                    <p>Agencies based in Cheshire are known for providing personalised, one-to-one support and maintaining smaller caseloads so that every foster carer receives the attention and guidance they deserve. The county's excellent schools and safe communities make it an appealing location for foster families looking to offer children stability and opportunity.</p>
+                    <a href="find-an-agency.html#find-agency" class="location-link">Find agencies in Cheshire →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cumbria -->
+        <div class="location-section">
+            <div class="location-row fade-up">
+                <div class="location-img">
+                    <img src="images/fostering-agency-north-west-foster-care-agencies.webp" alt="Fostering agency Cumbria Lake District mountains">
+                </div>
+                <div class="location-text">
+                    <h3>Fostering in <span class="highlight-pink">Cumbria</span> & the Lake District</h3>
+                    <p>Cumbria, home to the Lake District National Park, Carlisle, Barrow-in-Furness and Kendal, is a unique fostering environment that combines rural living with close-knit communities. Children placed in Cumbria often benefit from the outdoor lifestyle, smaller school settings, and strong community support that characterise the region.</p>
+                    <p>Fostering agencies in Cumbria understand the particular challenges of rural placements, including travel distances and access to services, and provide tailored support to address these. There is a particular need for foster carers in Cumbria who can offer stable, long-term homes, and agencies in the area actively recruit carers who value community, nature and a slower pace of life.</p>
+                    <a href="find-an-agency.html#find-agency" class="location-link">Find agencies in Cumbria →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BLOG ARTICLES -->
+<section class="section-pad" style="background:var(--bg-light);">
+    <div class="container">
+        <div class="text-center fade-up">
+            <h2>Latest <span class="highlight-pink">News & Articles</span></h2>
+            <p style="font-size:1.05rem;color:var(--text-light);max-width:600px;margin:16px auto 0;">Fostering insights, stories and updates from the North West</p>
+        </div>
+
+        <div class="blog-grid">
+            <div class="blog-card fade-up">
+                <div class="blog-card-img"><img src="images/fostering-agency-north-west-foster-care-agencies.webp" alt="Foster care agency North West family support"></div>
+                <div class="blog-card-body">
+                    <span class="blog-tag" style="background:#fce7f3;color:var(--primary);">Fostering Stories</span>
+                    <h3>How Manchester Foster Carers Are Changing Lives in 2026</h3>
+                    <p>Hear from real foster carers in Greater Manchester about their experiences, the challenges they have overcome, and why fostering has been the most rewarding decision of their lives.</p>
+                    <a href="#" class="read-more">Read Article →</a>
+                </div>
+            </div>
+
+            <div class="blog-card fade-up">
+                <div class="blog-card-img"><img src="images/fostering-agency-north-west-foster-care-agencies.webp" alt="Fostering UK training and support"></div>
+                <div class="blog-card-body">
+                    <span class="blog-tag" style="background:#dbeafe;color:#1d4ed8;">Training & Development</span>
+                    <h3>What to Expect from Fostering Training in the North West</h3>
+                    <p>A comprehensive guide to the training programmes offered by North West fostering agencies, from initial preparation courses to advanced therapeutic care qualifications.</p>
+                    <a href="#" class="read-more">Read Article →</a>
+                </div>
+            </div>
+
+            <div class="blog-card fade-up">
+                <div class="blog-card-img"><img src="images/fostering-agency-north-west-foster-care-agencies.webp" alt="Foster family agency allowances and support"></div>
+                <div class="blog-card-body">
+                    <span class="blog-tag" style="background:#dcfce7;color:#15803d;">Allowances</span>
+                    <h3>Fostering Allowances in the North West: What You Need to Know</h3>
+                    <p>Understanding how fostering allowances work in the North West, what to expect from different agencies, and how to compare financial packages when choosing where to foster.</p>
+                    <a href="#" class="read-more">Read Article →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ SECTION -->
+
+<section class="section-pad" style="background:var(--bg-light)">
+    <div class="container">
+        <div class="text-center fade-up">
+            <h2>Areas Covered Across the <span style="color:var(--secondary)">North West</span></h2>
+            <p style="font-size:1rem;color:var(--text-light);max-width:700px;margin:16px auto 0">Fostering agencies in the North West cover towns and cities across the entire region</p>
+        </div>
+        <div class="nw-areas-grid fade-up">
+            <div class="nw-area-card"><div class="nw-dot" style="background:var(--primary)"></div>Manchester</div>
+            <div class="nw-area-card"><div class="nw-dot" style="background:var(--secondary)"></div>Liverpool</div>
+            <div class="nw-area-card"><div class="nw-dot" style="background:var(--accent-green)"></div>Bolton</div>
+            <div class="nw-area-card"><div class="nw-dot" style="background:var(--accent-orange)"></div>Salford</div>
+            <div class="nw-area-card"><div class="nw-dot" style="background:var(--accent-yellow)"></div>Wigan</div>
+            <div class="nw-area-card"><div class="nw-dot" style="background:#8b5cf6"></div>Stockport</div>
+            <div class="nw-area-card"><div class="nw-dot" style="background:var(--primary)"></div>Warrington</div>
+            <div class="nw-area-card"><div class="nw-dot" style="background:var(--secondary)"></div>Preston</div>
+            <div class="nw-area-card"><div class="nw-dot" style="background:var(--accent-green)"></div>Blackburn</div>
+            <div class="nw-area-card"><div class="nw-dot" style="background:var(--accent-orange)"></div>Blackpool</div>
+            <div class="nw-area-card"><div class="nw-dot" style="background:var(--accent-yellow)"></div>Burnley</div>
+            <div class="nw-area-card"><div class="nw-dot" style="background:#8b5cf6"></div>Rochdale</div>
+            <div class="nw-area-card"><div class="nw-dot" style="background:var(--primary)"></div>Oldham</div>
+            <div class="nw-area-card"><div class="nw-dot" style="background:var(--secondary)"></div>Bury</div>
+            <div class="nw-area-card"><div class="nw-dot" style="background:var(--accent-green)"></div>St Helens</div>
+            <div class="nw-area-card"><div class="nw-dot" style="background:var(--accent-orange)"></div>Trafford</div>
+            <div class="nw-area-card"><div class="nw-dot" style="background:var(--accent-yellow)"></div>Tameside</div>
+            <div class="nw-area-card"><div class="nw-dot" style="background:#8b5cf6"></div>Wirral</div>
+            <div class="nw-area-card"><div class="nw-dot" style="background:var(--primary)"></div>Chester</div>
+            <div class="nw-area-card"><div class="nw-dot" style="background:var(--secondary)"></div>Lancaster</div>
+            <div class="nw-area-card"><div class="nw-dot" style="background:var(--accent-green)"></div>Crewe</div>
+            <div class="nw-area-card"><div class="nw-dot" style="background:var(--accent-orange)"></div>Macclesfield</div>
+            <div class="nw-area-card"><div class="nw-dot" style="background:var(--accent-yellow)"></div>Carlisle</div>
+            <div class="nw-area-card"><div class="nw-dot" style="background:#8b5cf6"></div>Barrow-in-Furness</div>
+        </div>
+    </div>
+</section>
+
+<section class="faq-section section-pad" id="faq">
+    <div class="container">
+        <div class="text-center" style="margin-bottom:48px;">
+            <h2 class="fade-up">Commonly Asked Questions About <span class="highlight-blue">Fostering in the North West</span></h2>
+            <p style="font-size:0.95rem;color:var(--text-light);max-width:720px;margin:16px auto 0;" class="fade-up">Thinking about fostering is a big step, and it is completely natural to have questions about eligibility, support, payments, training and what everyday life as a foster carer involves; the information below covers the most common topics to help you feel informed and confident, and if you would like to know more, please read our full <a href="faqs.html" style="color:var(--primary);font-weight:600;">FAQs</a> or contact a member of the team using our <a href="become-a-foster-carer.html" style="color:var(--primary);font-weight:600;">contact form</a>.</p>
+        </div>
+        <div style="max-width:820px;margin:0 auto;">
+            <div class="faq-item fade-up"><button class="faq-question" onclick="toggleFaq(this)"><span>How many fostering agencies are there in the North West?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>The North West of England is served by over 45 Ofsted-registered fostering agencies, including both independent fostering agencies and local authority fostering services. These agencies operate across Greater Manchester, Merseyside, Lancashire, Cheshire and Cumbria, each offering different specialisms, support structures and allowance packages.</p><p style="margin-top:12px;">Think Fostering helps you compare these agencies in one place, so you can find the right fit for your circumstances without needing to research each one individually.</p><ul class="faq-bullets"><li><img class="tick-icon" src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2718%27 height=%2718%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%237ac943%27 stroke-width=%273%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M20 6L9 17l-5-5%27/%3E%3C/svg%3E" alt="fostering agency north west">Over 45 registered agencies across the region</li><li><img class="tick-icon" src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2718%27 height=%2718%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%237ac943%27 stroke-width=%273%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M20 6L9 17l-5-5%27/%3E%3C/svg%3E" alt="foster care agency Manchester">Both independent and local authority services available</li><li><img class="tick-icon" src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2718%27 height=%2718%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%237ac943%27 stroke-width=%273%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M20 6L9 17l-5-5%27/%3E%3C/svg%3E" alt="foster care agency Liverpool">Compare agencies free of charge on Think Fostering</li></ul></div></div>
+
+            <div class="faq-item fade-up"><button class="faq-question" onclick="toggleFaq(this)"><span>What fostering allowances can I expect in the North West?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Fostering allowances in the North West vary between agencies and depend on the age of the child, the type of placement and whether additional skills-based fees are included. As a general guide, weekly allowances typically range from around £400 to £600 or more per week, with higher rates for specialist or therapeutic placements.</p><p style="margin-top:12px;">Many independent fostering agencies in the North West offer additional payments for birthdays, holidays, clothing and activities. It is important to compare the full financial package, not just the headline allowance, when choosing an agency.</p><ul class="faq-bullets"><li><img class="tick-icon" src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2718%27 height=%2718%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%237ac943%27 stroke-width=%273%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M20 6L9 17l-5-5%27/%3E%3C/svg%3E" alt="fostering allowances north west">Allowances typically range from £400 to £600+ per week</li><li><img class="tick-icon" src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2718%27 height=%2718%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%237ac943%27 stroke-width=%273%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M20 6L9 17l-5-5%27/%3E%3C/svg%3E" alt="fostering agency Lancashire">Additional payments for birthdays and holidays common</li><li><img class="tick-icon" src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2718%27 height=%2718%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%237ac943%27 stroke-width=%273%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M20 6L9 17l-5-5%27/%3E%3C/svg%3E" alt="foster care agency Cheshire">Compare full packages, not just headline rates</li></ul></div></div>
+
+            <div class="faq-item fade-up"><button class="faq-question" onclick="toggleFaq(this)"><span>Do I need experience to foster in the North West?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>No prior fostering experience is required. All fostering agencies in the North West provide comprehensive training before you are approved as a foster carer, covering child development, safeguarding, managing challenging behaviour, and the legal framework around looked-after children. Many agencies also offer ongoing professional development after approval.</p><p style="margin-top:12px;">What agencies look for is personal commitment, resilience, empathy and a genuine desire to provide a safe and supportive home for children. Life experience, whether as a parent, teacher, youth worker or simply a caring individual, is valued alongside formal qualifications.</p><ul class="faq-bullets"><li><img class="tick-icon" src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2718%27 height=%2718%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%237ac943%27 stroke-width=%273%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M20 6L9 17l-5-5%27/%3E%3C/svg%3E" alt="fostering agency north west">No prior experience needed to become a foster carer</li><li><img class="tick-icon" src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2718%27 height=%2718%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%237ac943%27 stroke-width=%273%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M20 6L9 17l-5-5%27/%3E%3C/svg%3E" alt="foster care agency Manchester">Full training provided before and after approval</li><li><img class="tick-icon" src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2718%27 height=%2718%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%237ac943%27 stroke-width=%273%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M20 6L9 17l-5-5%27/%3E%3C/svg%3E" alt="foster care agency Liverpool">Personal qualities valued alongside qualifications</li></ul></div></div>
+
+            <div class="faq-item fade-up"><button class="faq-question" onclick="toggleFaq(this)"><span>How do I choose between agencies in my area?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Choosing the right fostering agency is a personal decision that depends on your circumstances, preferences and expectations. Start by reviewing Ofsted inspection reports for agencies in your area, which are publicly available and provide independent assessments of safeguarding, leadership and carer support quality.</p><p style="margin-top:12px;">Compare what each agency offers in terms of training, supervision frequency, financial allowances and out-of-hours support. Speaking directly to agencies and, where possible, to existing foster carers will give you the clearest picture of what day-to-day fostering life is really like with that provider.</p><ul class="faq-bullets"><li><img class="tick-icon" src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2718%27 height=%2718%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%237ac943%27 stroke-width=%273%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M20 6L9 17l-5-5%27/%3E%3C/svg%3E" alt="fostering agency Lancashire">Review Ofsted reports for independent assessments</li><li><img class="tick-icon" src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2718%27 height=%2718%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%237ac943%27 stroke-width=%273%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M20 6L9 17l-5-5%27/%3E%3C/svg%3E" alt="foster care agency Cheshire">Compare training, support and allowance packages</li><li><img class="tick-icon" src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2718%27 height=%2718%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%237ac943%27 stroke-width=%273%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M20 6L9 17l-5-5%27/%3E%3C/svg%3E" alt="fostering agency north west">Speak directly to agencies and existing carers</li></ul></div></div>
+
+            <div class="faq-item fade-up"><button class="faq-question" onclick="toggleFaq(this)"><span>Can I foster if I live in a rural part of the North West?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Absolutely. Foster carers are needed in both urban and rural areas across the North West, including Lancashire's countryside, the Ribble Valley, Cumbria and the Lake District. Many agencies specifically seek carers in rural areas because children can benefit from the quieter environment, access to outdoor activities, and strong community connections that rural living provides.</p><p style="margin-top:12px;">Agencies experienced in rural placements understand the unique considerations around travel distances, access to schools and services, and provide tailored support to ensure you never feel isolated. If you live in a rural area and are considering fostering, there will almost certainly be an agency ready to support you.</p><ul class="faq-bullets"><li><img class="tick-icon" src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2718%27 height=%2718%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%237ac943%27 stroke-width=%273%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M20 6L9 17l-5-5%27/%3E%3C/svg%3E" alt="fostering agency Cumbria">Rural foster carers are actively recruited</li><li><img class="tick-icon" src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2718%27 height=%2718%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%237ac943%27 stroke-width=%273%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M20 6L9 17l-5-5%27/%3E%3C/svg%3E" alt="foster care agency Lancashire">Children often thrive in quieter, rural settings</li><li><img class="tick-icon" src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2718%27 height=%2718%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%237ac943%27 stroke-width=%273%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M20 6L9 17l-5-5%27/%3E%3C/svg%3E" alt="fostering agency north west">Tailored support for rural placements available</li></ul></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+    <div class="container fade-up">
+        <h2>Ready to Start Fostering in the North West?</h2>
+        <p>Browse our agencies, compare support and allowances, and take the first step towards changing a child's life.</p>
+        <a href="contact-us.html" class="btn">Enquire Now →</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="images/think-fostering-logo.webp" alt="Think Fostering" height="40" style="height:40px;width:auto;filter:brightness(0) invert(1);opacity:0.9;">
+                <p>Your hub for everything fostering. Connecting potential foster carers with trusted agencies across the UK.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="LinkedIn">💼</a>
+                </div>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="find-an-agency.html#find-agency">Find an Agency</a></li>
+                    <li><a href="fostering.html">About Fostering</a></li>
+                    <li><a href="transfer-fostering-agency.html">Transfer Agency</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Fostering Info</h4>
+                <ul class="footer-links">
+                    <li><a href="fostering.html">What is Fostering?</a></li>
+                    <li><a href="faqs.html">Can I Foster?</a></li>
+                    <li><a href="faqs.html">Allowances</a></li>
+                    <li><a href="transfer-fostering-agency.html">Transfer Agency</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Get in Touch</h4>
+                <ul class="footer-links">
+                    <li><a href="become-a-foster-carer.html">Become a Foster Carer</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li><a href="agency-signup.html">For Agencies</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-use.html">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;margin-top:20px;font-size:0.82rem;color:rgba(255,255,255,0.45);text-align:center;line-height:1.7">
+            <strong style="color:rgba(255,255,255,0.6)">Think Fostering</strong> &middot; 
+            128 City Road, London, EC1V 2NX &middot; 
+            <a href="tel:08001234567" style="color:rgba(255,255,255,0.5)">0800 123 4567</a> &middot; 
+            <a href="/cdn-cgi/l/email-protection#4b232e2727240b3f232225202d24383f2e3922252c652824653e20" style="color:rgba(255,255,255,0.5)"><span class="__cf_email__" data-cfemail="c7afa2ababa887b3afaea9aca1a8b4b3a2b5aea9a0e9a4a8e9b2ac">[email&#160;protected]</span></a>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:14px;margin-top:14px;font-size:0.78rem;color:rgba(255,255,255,0.35);text-align:center;">
+            <a href="sitemap.xml" style="color:rgba(255,255,255,0.4);margin:0 10px;">Sitemap</a> | 
+            <a href="llms.txt" style="color:rgba(255,255,255,0.4);margin:0 10px;">LLMs</a> | 
+            <a href="robots.txt" style="color:rgba(255,255,255,0.4);margin:0 10px;">Robots</a> | 
+            <a href="https://thinkfostering.co.uk/fostering" style="color:rgba(255,255,255,0.4);margin:0 10px;">Fostering UK</a> | 
+            <a href="https://www.thinkfostering.co.uk/find-an-agency" style="color:rgba(255,255,255,0.4);margin:0 10px;">Foster Care Agency Near Me</a>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 <a href="https://thinkfostering.co.uk" style="color:rgba(255,255,255,0.6);font-weight:600;">Think Fostering</a>. All rights reserved.</span>
+            <span>Made with &#128155; for foster families</span>
+        </div>
+    </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    window.addEventListener('scroll', function() { document.getElementById('header').classList.toggle('scrolled', window.scrollY > 20); });
+    document.getElementById('mobileToggle').addEventListener('click', function() { document.getElementById('mobileNav').classList.toggle('active'); });
+
+    function toggleFaq(btn) {
+        var item = btn.parentElement;
+        var wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+        if (!wasOpen) item.classList.add('open');
+    }
+
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(var observer=new IntersectionObserver(function(entries){e

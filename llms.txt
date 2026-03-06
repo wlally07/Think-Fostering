@@ -1,0 +1,41 @@
+# Think Fostering - llms.txt
+# https://thinkfostering.co.uk
+
+> Think Fostering is a UK fostering comparison platform that helps prospective and existing foster carers find, compare and connect with Ofsted-registered fostering agencies across England. The site provides comprehensive guides to fostering, eligibility, the assessment process, allowances, types of fostering and transferring between agencies.
+
+## Core Pages
+- [Home](https://thinkfostering.co.uk/): Main landing page and hub
+- [Fostering Guide](https://thinkfostering.co.uk/fostering.html): Complete guide to foster care in England
+- [What Is Fostering?](https://thinkfostering.co.uk/what-is-fostering.html): Explanation of foster care
+- [Why Foster?](https://thinkfostering.co.uk/why-become-a-foster-carer.html): Reasons to become a foster carer
+- [Types of Fostering](https://thinkfostering.co.uk/types-of-fostering.html): Short-term, long-term, emergency, respite, therapeutic, parent and child
+- [Can I Foster?](https://thinkfostering.co.uk/can-i-foster.html): Eligibility requirements
+- [Become a Foster Carer](https://thinkfostering.co.uk/how-to-become-a-foster-carer.html): Step-by-step guide
+- [The Fostering Process](https://thinkfostering.co.uk/fostering-process.html): From enquiry to approval
+- [Form F Assessment](https://thinkfostering.co.uk/fostering-form-f-assessment.html): Assessment process explained
+- [Fostering Allowances](https://thinkfostering.co.uk/fostering-allowance-payment-for-fostering.html): Pay, fees and tax relief
+- [Fostering vs Adoption](https://thinkfostering.co.uk/fostering-vs-adoption.html): Key differences between fostering and adoption
+- [Transfer Agency](https://thinkfostering.co.uk/transfer-fostering-agency.html): How to switch fostering agency
+- [FAQs](https://thinkfostering.co.uk/faqs.html): Frequently asked questions
+- [Find an Agency](https://thinkfostering.co.uk/find-an-agency.html): Search and compare agencies
+- [Contact](https://thinkfostering.co.uk/contact.html): Get in touch
+
+## Regional Pages
+- [North West](https://thinkfostering.co.uk/fostering-agency-north-west.html): Manchester, Liverpool, Lancashire, Merseyside
+- [Yorkshire & Humber](https://thinkfostering.co.uk/fostering-in-yorkshire.html): Bradford, Sheffield, Doncaster, York, Harrogate
+- [North East](https://thinkfostering.co.uk/fostering-in-north-east.html): Newcastle, Sunderland, Gateshead, Durham, Darlington, Middlesbrough, Stockton
+- [South East](https://thinkfostering.co.uk/fostering-in-south-east.html): Brighton, Canterbury, Southampton, Portsmouth, Oxford, Reading
+- [London](https://thinkfostering.co.uk/fostering-in-london.html): Croydon, Lewisham, Tower Hamlets, Newham, Barnet, Enfield
+- [West Midlands](https://thinkfostering.co.uk/fostering-in-birmingham.html): Birmingham, Coventry, Wolverhampton, Dudley
+
+## Key Facts
+- Approximately 54,800 children live in foster care in England
+- Around 67% of looked-after children are placed in foster care
+- Independent fostering agency allowances typically range from £450 to £860 per week
+- Most fostering income is tax-free under HMRC Qualifying Care Relief
+- The fostering assessment process typically takes 4-8 months
+- All foster carers have the right to transfer between agencies
+
+- For Agencies: /for-agencies - Information for fostering agencies wanting to list on Think Fostering
+- Privacy Policy: /privacy-policy - How we collect and handle personal data
+- Terms of Use: /terms-of-use - Terms and conditions for using the Think Fostering website

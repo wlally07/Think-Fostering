@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Think Fostering</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <meta name="description" content="Ready to change a child's life? Complete our enquiry form and take the first step on your fostering journey. Our team will be in touch within 24 hours.">
+    <meta property="og:title" content="Start Your Fostering Journey | Think Fostering">
+    <meta property="og:description" content="Complete our enquiry form and take the first step on your fostering journey.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #2d3748;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: #ffffff;
+        }
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+
+        :root {
+            --primary: #e6007e;
+            --primary-dark: #c4006b;
+            --secondary: #00b4d8;
+            --secondary-dark: #0096b7;
+            --accent-green: #7ac943;
+            --accent-yellow: #ffd100;
+            --accent-orange: #ff6b35;
+            --dark: #1a1a2e;
+            --text: #2d3748;
+            --text-light: #64748b;
+            --bg-light: #f0f7ff;
+            --bg-warm: #fff9f0;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --radius: 16px;
+            --radius-sm: 10px;
+            --shadow: 0 4px 24px rgba(0,0,0,0.08);
+            --shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        h1, h2, h3, h4 { font-family: 'Baloo 2', cursive; line-height: 1.2; }
+        h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; }
+        h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; }
+        h3 { font-size: 1.3rem; font-weight: 600; }
+        .highlight-pink { color: var(--primary); }
+        .highlight-blue { color: var(--secondary); }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(230,0,126,0.3);
+        }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(230,0,126,0.4); }
+        .btn-secondary { background: var(--white); color: var(--primary); border: 2px solid var(--primary); }
+        .btn-secondary:hover { background: var(--primary); color: var(--white); transform: translateY(-2px); }
+        .btn-blue { background: var(--secondary); color: var(--white); box-shadow: 0 4px 20px rgba(0,180,216,0.3); }
+        .btn-blue:hover { background: var(--secondary-dark); transform: translateY(-2px); }
+
+        /* ===== HEADER ===== */
+        .header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.06); transition: box-shadow 0.3s;
+        }
+        .header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+        .nav { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+        .logo { display: flex; align-items: center; gap: 10px; }
+        .logo-icon {
+            width: 48px; height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--accent-orange));
+            border-radius: 12px; display: flex; align-items: center; justify-content: center;
+        }
+        .logo-icon svg { width: 28px; height: 28px; }
+        .logo-text { font-family: 'Baloo 2', cursive; font-size: 1.6rem; font-weight: 800; color: var(--dark); }
+        .logo-text span { color: var(--primary); }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { font-weight: 500; font-size: 0.95rem; color: var(--text); transition: color 0.2s; position: relative; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s; }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-cta .btn { padding: 12px 28px; font-size: 0.9rem; }
+        .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; }
+        .mobile-toggle span { width: 26px; height: 2.5px; background: var(--dark); border-radius: 2px; transition: 0.3s; }
+
+        /* ===== HERO ===== */
+        .page-hero {
+            padding-top: 80px; padding-bottom: 0;
+            background: linear-gradient(135deg, #eef6ff 0%, #fff0f5 50%, #fff9e6 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(230,0,126,0.08) 0%, transparent 70%); border-radius: 50%;
+        }
+        .page-hero-inner {
+            text-align: center; padding: 20px 0 16px; position: relative; z-index: 2;
+        }
+        .page-hero h1 { color: var(--dark); margin-bottom: 16px; }
+        .page-hero p { font-size: 1.15rem; color: var(--text-light); max-width: 640px; margin: 0 auto 32px; line-height: 1.8; }
+        .trust-badges {
+            display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;
+            padding: 28px 0 0; border-top: 1px solid rgba(0,0,0,0.06); margin-top: 32px;
+        }
+        .trust-badge { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--text-light); }
+        .trust-badge .icon { font-size: 1.3rem; }
+
+        .colour-strip {
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--accent-orange), var(--accent-yellow), var(--accent-green), var(--secondary));
+        }
+
+        /* ===== FORM SECTION ===== */
+        .form-section { padding: 20px 0 60px; background: var(--bg-light); }
+        .form-layout {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 48px;
+            align-items: start;
+        }
+
+        /* ===== FORM CARD ===== */
+        .form-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        /* ===== PROGRESS BAR ===== */
+        .progress-bar {
+            display: flex;
+            background: #fafbfc;
+            border-bottom: 1px solid var(--border);
+            overflow-x: auto;
+        }
+        .progress-step {
+            flex: 1;
+            padding: 18px 16px;
+            text-align: center;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-light);
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+            min-width: 140px;
+        }
+        .progress-step.active {
+            color: var(--primary);
+            background: rgba(230,0,126,0.04);
+        }
+        .progress-step.active::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+            height: 3px; background: var(--primary);
+        }
+        .progress-step.completed { color: var(--accent-green); }
+        .progress-step.completed::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+            height: 3px; background: var(--accent-green);
+        }
+        .progress-step .step-num {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 26px; height: 26px; border-radius: 50%;
+            background: var(--border); color: var(--text-light);
+            font-size: 0.75rem; font-weight: 700; margin-right: 6px;
+        }
+        .progress-step.active .step-num { background: var(--primary); color: var(--white); }
+        .progress-step.completed .step-num { background: var(--accent-green); color: var(--white); }
+
+        /* ===== FORM STEPS ===== */
+        .form-step { display: none; padding: 36px; }
+        .form-step.active { display: block; }
+        .form-step-header {
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        .form-step-header h2 { font-size: 1.4rem; margin-bottom: 6px; }
+        .form-step-header p { font-size: 0.9rem; color: var(--text-light); }
+
+        /* ===== FORM ELEMENTS ===== */
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 24px; }
+        .form-group { display: flex; flex-direction: column; gap: 6px; }
+        .form-group.full { grid-column: 1 / -1; }
+        .form-group label { font-size: 0.88rem; font-weight: 600; color: var(--dark); }
+        .form-group label .req { color: var(--primary); }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 13px 16px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 0.92rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            transition: border-color 0.2s, box-shadow 0.2s;
+            background: var(--white);
+            outline: none;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(230,0,126,0.08);
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder { color: #a0aec0; }
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        .form-group .hint { font-size: 0.78rem; color: var(--text-light); }
+        .form-group input.error,
+        .form-group select.error { border-color: #ef4444; }
+        .form-group .err { font-size: 0.78rem; color: #ef4444; display: none; }
+        .form-group .err.show { display: block; }
+
+        .form-divider {
+            border: none; border-top: 1px solid var(--border); margin: 24px 0;
+        }
+        .form-section-title {
+            font-family: 'Baloo 2', cursive; font-size: 1.1rem; font-weight: 700;
+            color: var(--dark); margin-bottom: 4px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .form-section-desc { font-size: 0.84rem; color: var(--text-light); margin-bottom: 18px; }
+
+        /* Second applicant toggle */
+        .toggle-second {
+            background: rgba(0,180,216,0.06);
+            border: 2px dashed rgba(0,180,216,0.3);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 8px;
+        }
+        .toggle-second:hover {
+            background: rgba(0,180,216,0.1);
+            border-color: var(--secondary);
+        }
+        .toggle-second .label {
+            font-weight: 600; color: var(--secondary-dark); font-size: 0.95rem;
+        }
+        .toggle-second .sub {
+            font-size: 0.82rem; color: var(--text-light); margin-top: 4px;
+        }
+        .second-applicant { display: none; margin-top: 24px; }
+        .second-applicant.show { display: block; }
+        .remove-second {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: none; border: none; color: #ef4444; font-size: 0.85rem;
+            font-weight: 600; cursor: pointer; padding: 8px 0; font-family: 'Inter', sans-serif;
+        }
+
+        /* Radio / Checkbox groups */
+        .radio-group, .checkbox-group { display: flex; flex-wrap: wrap; gap: 10px; }
+        .radio-option, .checkbox-option {
+            display: flex; align-items: center; gap: 8px;
+            padding: 10px 18px;
+            border: 2px solid var(--border);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.88rem;
+        }
+        .radio-option:hover, .checkbox-option:hover { border-color: var(--primary); }
+        .radio-option input, .checkbox-option input { display: none; }
+        .radio-option.selected, .checkbox-option.selected {
+            border-color: var(--primary);
+            background: rgba(230,0,126,0.06);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Form nav buttons */
+        .form-nav {
+            padding: 24px 36px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fafbfc;
+        }
+        .form-nav .step-info { font-size: 0.85rem; color: var(--text-light); }
+
+        /* ===== SIDEBAR ===== */
+        .form-sidebar { position: sticky; top: 100px; }
+        .sidebar-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 28px;
+            margin-bottom: 20px;
+        }
+        .sidebar-card h4 {
+            font-family: 'Baloo 2', cursive;
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin-bottom: 16px;
+        }
+        .sidebar-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.7; margin-bottom: 12px; }
+        .sidebar-card p:last-child { margin-bottom: 0; }
+        .sidebar-checklist { list-style: none; }
+        .sidebar-checklist li {
+            padding: 10px 0;
+            font-size: 0.88rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .sidebar-checklist li:last-child { border-bottom: none; }
+        .sidebar-checklist .check { font-size: 1rem; flex-shrink: 0; }
+        .sidebar-contact {
+            background: linear-gradient(135deg, var(--primary), var(--accent-orange));
+            border-radius: var(--radius);
+            padding: 28px;
+            color: var(--white);
+            text-align: center;
+        }
+        .sidebar-contact h4 { color: var(--white); margin-bottom: 10px; font-size: 1.1rem; }
+        .sidebar-contact p { font-size: 0.88rem; opacity: 0.9; margin-bottom: 16px; line-height: 1.7; }
+        .sidebar-contact .phone {
+            font-family: 'Baloo 2', cursive;
+            font-size: 1.5rem;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* ===== SUCCESS STATE ===== */
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 80px 36px;
+        }
+        .form-success.show { display: block; }
+        .form-success .icon { font-size: 4rem; margin-bottom: 20px; }
+        .form-success h2 { margin-bottom: 12px; }
+        .form-success p { color: var(--text-light); font-size: 1.05rem; max-width: 480px; margin: 0 auto 32px; line-height: 1.8; }
+
+        /* ===== FOOTER ===== */
+        .footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 60px 0 30px; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .footer-logo { font-family: 'Baloo 2', cursive; font-size: 1.3rem; font-weight: 800; color: var(--white); }
+        .footer-logo span { color: var(--primary); }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { font-size: 0.88rem; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--primary); }
+        .footer-copy { font-size: 0.82rem; }
+
+        /* ===== MOBILE NAV ===== */
+        .mobile-nav {
+            display: none; position: fixed; top: 80px; left: 0; right: 0; bottom: 0;
+            background: var(--white); z-index: 999; padding: 32px 24px;
+        }
+        .mobile-nav.active { display: block; }
+        .mobile-nav a { display: block; padding: 16px 0; font-size: 1.2rem; font-weight: 500; border-bottom: 1px solid #eee; }
+        .mobile-nav .btn { margin-top: 24px; width: 100%; justify-content: center; }
+
+        /* ===== RESPONSIVE ===== */
+        .dropdown .has-subdropdown{position:relative}.dropdown .has-subdropdown>a{display:flex;align-items:center;justify-content:space-between}.dropdown .has-subdropdown>a::after{content:"\203A";font-size:1rem;color:#94a3b8;margin-left:auto}.subdropdown{position:absolute;top:-12px;left:100%;min-width:220px;background:#fff;border-radius:12px;box-shadow:0 12px 48px rgba(0,0,0,0.12);padding:12px 0;opacity:0;visibility:hidden;transform:translateX(8px);transition:all 0.25s;z-index:101;border:1px solid rgba(0,0,0,0.06)}.has-subdropdown:hover .subdropdown{opacity:1;visibility:visible;transform:translateX(0)}.subdropdown a{display:block;padding:10px 20px;font-size:0.85rem;font-weight:500;color:#2d3748;transition:all 0.15s}.subdropdown a:hover{background:#f0f7ff;color:#e6007e;padding-left:24px}.subdropdown a::after{display:none!important}.subdropdown-label{padding:10px 20px 4px;font-size:0.72rem;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:0.5px}.subdropdown-label:not(:first-child){border-top:1px solid #eef2f7;margin-top:6px;padding-top:12px}
+        @media (max-width: 1024px) {
+            .form-layout { grid-template-columns: 1fr; }
+            .form-sidebar { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        }
+        @media (max-width: 768px) {
+            .nav-links, .nav-cta { display: none; }
+            .mobile-toggle { display: flex; }
+            .form-step { padding: 24px 20px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-group.full { grid-column: 1; }
+            .form-nav { padding: 20px; flex-wrap: wrap; gap: 12px; }
+            .form-sidebar { grid-template-columns: 1fr; }
+            .trust-badges { gap: 16px; }
+            .progress-step { padding: 14px 10px; font-size: 0.75rem; min-width: 100px; }
+        }
+
+        /* ===== ANIMATION ===== */
+        .fade-up {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+    
+        /* DROPDOWN */
+        .has-dropdown { position: relative; }
+        .has-dropdown > a { display: flex; align-items: center; gap: 4px; }
+        .has-dropdown > a::after { content: '▾'; font-size: 0.7rem; transition: transform 0.2s; }
+        .dropdown { position: absolute; top: 100%; left: -16px; min-width: 260px; background: var(--white, #fff); border-radius: 12px; box-shadow: 0 12px 48px rgba(0,0,0,0.12); padding: 12px 0; opacity: 0; visibility: hidden; transform: translateY(8px); transition: all 0.25s ease; z-index: 100; border: 1px solid rgba(0,0,0,0.06); }
+        .has-dropdown:hover .dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown a { display: block; padding: 10px 20px; font-size: 0.88rem; font-weight: 500; color: #2d3748; transition: all 0.15s; }
+        .dropdown a:hover { background: #f0f7ff; color: #e6007e; padding-left: 24px; }
+        .dropdown a::after { display: none; }
+        .dropdown-divider { height: 1px; background: #eef2f7; margin: 6px 0; }
+        .dropdown-label { padding: 8px 20px 4px; font-size: 0.72rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; }
+    
+        @media (max-width: 1024px) {
+            #contactForm ~ div, section > .container > div { grid-template-columns: 1fr !important; }
+        }
+    </style>
+    <link rel="canonical" href="https://thinkfostering.co.uk/contact-us">
+
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Think Fostering", "url": "https://thinkfostering.co.uk", "description": "UK fostering comparison platform helping prospective foster carers find and compare Ofsted-registered fostering agencies.", "sameAs": []}</script>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@thinkfostering">
+    <meta name="twitter:title" content="Start Your Fostering Journey | Think Fostering">
+    <meta name="twitter:description" content="Complete our enquiry form and take the first step on your fostering journey.">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <img src="images/think-fostering-logo.webp" alt="Think Fostering" height="48" style="height:48px;width:auto;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">About Us</a></li>
+                <li class="has-dropdown"><a href="fostering.html">Fostering</a>
+                    <div class="dropdown">
+                        <a href="what-is-fostering.html">What Is Fostering?</a>
+                        <a href="why-become-a-foster-carer.html">Why Foster?</a>
+                        <a href="types-of-fostering.html">Types of Fostering</a>
+                        <a href="can-i-foster.html">Can I Foster?</a>
+                        <a href="how-to-become-a-foster-carer.html">Become a Foster Carer</a>
+                        <a href="fostering-process.html">The Fostering Process</a>
+                        <a href="fostering-form-f-assessment.html">Fostering Assessment</a>
+                        <a href="fostering-allowance-payment-for-fostering.html">Payment & Allowances</a>
+                        <a href="faqs.html">FAQs</a>
+                        <a href="transfer-fostering-agency.html">Transfer Agency</a>
+                    </div>
+                </li>
+                <li class="has-dropdown"><a href="find-an-agency.html#find-agency">Find an Agency</a>
+                    <div class="dropdown">
+                        <a href="find-an-agency.html#find-agency">Search All Agencies</a>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-label">By Region</div>
+                        <div class="has-subdropdown"><a href="fostering-agency-north-west.html">North West</a><div class="subdropdown"><div class="subdropdown-label">Greater Manchester</div><a href="fostering-in-manchester.html">Manchester</a><a href="fostering-in-bolton.html">Bolton</a><div class="subdropdown-label"><a href="fostering-in-lancashire.html" style="color:inherit;text-decoration:none">Lancashire</a></div><a href="fostering-in-preston.html">Preston</a><a href="fostering-in-blackburn.html">Blackburn</a><div class="subdropdown-label">Merseyside</div><a href="fostering-in-liverpool.html">Liverpool</a><a href="fostering-in-wirral.html">Wirral</a></div></div>
+                        
+                        <div class="has-subdropdown"><a href="fostering-in-yorkshire.html">Yorkshire &amp; Humber</a><div class="subdropdown"><div class="subdropdown-label">West Yorkshire</div><a href="#">Leeds</a><a href="fostering-in-bradford.html">Bradford</a><div class="subdropdown-label">South Yorkshire</div><a href="fostering-in-sheffield.html">Sheffield</a><a href="fostering-in-doncaster.html">Doncaster</a><div class="subdropdown-label">North Yorkshire</div><a href="fostering-in-york.html">York</a><a href="fostering-in-harrogate.html">Harrogate</a></div></div><div class="has-subdropdown"><a href="fostering-in-north-east.html">North East</a><div class="subdropdown"><div class="subdropdown-label">Tyne &amp; Wear</div><a href="fostering-in-newcastle.html">Newcastle</a><a href="fostering-in-sunderland.html">Sunderland</a><a href="fostering-in-gateshead.html">Gateshead</a><div class="subdropdown-label">County Durham</div><a href="fostering-in-durham.html">Durham</a><a href="fostering-in-darlington.html">Darlington</a><div class="subdropdown-label">Teesside</div><a href="fostering-in-middlesbrough.html">Middlesbrough</a><a href="fostering-in-stockton.html">Stockton</a></div></div>
+                        
+                        <a href="#">West Midlands</a>
+                        <a href="#">East Midlands</a>
+                        <div class="has-subdropdown"><a href="fostering-in-south-east.html">South East</a><div class="subdropdown"><div class="subdropdown-label">Kent &amp; Sussex</div><a href="fostering-in-brighton.html">Brighton</a><a href="fostering-in-canterbury.html">Canterbury</a><div class="subdropdown-label">Hampshire</div><a href="fostering-in-southampton.html">Southampton</a><a href="fostering-in-portsmouth.html">Portsmouth</a><div class="subdropdown-label">Home Counties</div><a href="fostering-in-oxford.html">Oxford</a><a href="fostering-in-reading.html">Reading</a></div></div>
+                        <a href="#">South West</a>
+                        <div class="has-subdropdown"><a href="fostering-in-london.html">London</a><div class="subdropdown"><div class="subdropdown-label">South London</div><a href="fostering-in-croydon.html">Croydon</a><a href="fostering-in-lewisham.html">Lewisham</a><div class="subdropdown-label">East London</div><a href="fostering-in-tower-hamlets.html">Tower Hamlets</a><a href="fostering-in-newham.html">Newham</a><div class="subdropdown-label">North London</div><a href="fostering-in-barnet.html">Barnet</a><a href="fostering-in-enfield.html">Enfield</a></div></div>
+                        <a href="#">East of England</a>
+                    </div>
+                </li>
+                <li><a href="transfer-fostering-agency.html">Transfer Agency</a></li>
+                <li><a href="#news">News & Events</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="contact-us.html" class="btn btn-primary">Enquire Now</a>
+            </div>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+        </nav>
+    </div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+    <a href="#about" onclick="closeMobileNav()">About Us</a>
+    <a href="find-an-agency.html#find-agency" onclick="closeMobileNav()">Find an Agency</a>
+    <a href="#news" onclick="closeMobileNav()">News & Events</a>
+    <a href="contact-us.html" class="btn btn-primary" onclick="closeMobileNav()">Enquire Now</a>
+</div>
+
+
+<!-- PAGE HERO -->
+<section class="page-hero" style="padding-bottom:0;">
+    <div class="container">
+        <div class="page-hero-inner fade-up" style="padding:20px 0 16px;">
+            <h1>Contact <span class="highlight-pink">Us</span></h1>
+        </div>
+    </div>
+</section>
+
+<div class="colour-strip"></div>
+
+<!-- CONTACT FORM -->
+<section style="padding:40px 0 60px;background:var(--bg-light);">
+    <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:start;">
+            
+            <!-- FORM -->
+            <div style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-lg);padding:40px;">
+                <h2 style="font-size:1.4rem;margin-bottom:8px;">Get in Touch</h2>
+                <p style="font-size:0.92rem;color:var(--text-light);margin-bottom:32px;line-height:1.7;">Have a question about fostering, our platform, or anything else? Send us a message and we'll get back to you within 24 hours.</p>
+
+                <div id="contactForm">
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px 24px;margin-bottom:18px;">
+                        <div class="form-group">
+                            <label>First Name <span class="req">*</span></label>
+                            <input type="text" id="cfFirstName" placeholder="e.g. Sarah" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Surname <span class="req">*</span></label>
+                            <input type="text" id="cfSurname" placeholder="e.g. Thompson" required>
+                        </div>
+                    </div>
+
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px 24px;margin-bottom:18px;">
+                        <div class="form-group">
+                            <label>Email Address <span class="req">*</span></label>
+                            <input type="email" id="cfEmail" placeholder="e.g. sarah@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" id="cfPhone" placeholder="e.g. 07700 900000">
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:18px;">
+                        <label>Nature of Enquiry <span class="req">*</span></label>
+                        <select id="cfEnquiryType" required>
+                            <option value="">Please select...</option>
+                            <option value="general">General Enquiry</option>
+                            <option value="become-foster-carer">Become a Foster Carer</option>
+                            <option value="transfer-agency">Transfer Fostering Agency</option>
+                            <option value="join-us">Join Us (List Your Agency)</option>
+                            <option value="feedback">Feedback or Suggestion</option>
+                            <option value="media">Media or Press Enquiry</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:18px;">
+                        <label>Subject <span class="req">*</span></label>
+                        <input type="text" id="cfSubject" placeholder="What is your enquiry about?" required>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:24px;">
+                        <label>Your Message <span class="req">*</span></label>
+                        <textarea id="cfMessage" rows="6" placeholder="Tell us how we can help..." required style="min-height:140px;"></textarea>
+                    </div>
+
+                    <div style="margin-bottom:24px;">
+                        <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:0.85rem;color:var(--text-light);line-height:1.6;">
+                            <input type="checkbox" id="cfConsent" required style="width:18px;height:18px;margin-top:2px;accent-color:var(--primary);flex-shrink:0;">
+                            <span>I consent to Think Fostering storing my data and contacting me about my enquiry. My data will be handled in line with the <a href="privacy-policy.html" style="color:var(--primary);font-weight:600;">Privacy Policy</a>. <span class="req">*</span></span>
+                        </label>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="submitContactForm()" style="width:100%;justify-content:center;font-size:1rem;">Send Message →</button>
+                </div>
+
+                <!-- Success Message -->
+                <div id="contactSuccess" style="display:none;text-align:center;padding:40px 20px;">
+                    <div style="font-size:3rem;margin-bottom:16px;">🎉</div>
+                    <h2 style="font-size:1.4rem;margin-bottom:12px;">Message Sent!</h2>
+                    <p style="font-size:0.95rem;color:var(--text-light);line-height:1.7;max-width:400px;margin:0 auto 24px;">Thank you for getting in touch. We'll review your message and get back to you within <strong>24 hours</strong>.</p>
+                    <a href="index.html" class="btn btn-primary">← Back to Home</a>
+                </div>
+            </div>
+
+            <!-- SIDEBAR -->
+            <div style="position:sticky;top:100px;">
+                <div style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;margin-bottom:20px;">
+                    <h4 style="font-family:'Baloo 2',cursive;font-size:1.1rem;margin-bottom:14px;color:var(--dark);">📞 Call Us</h4>
+                    <a href="tel:08001234567" style="display:block;font-size:1.3rem;font-weight:700;color:var(--primary);margin-bottom:4px;">0800 123 4567</a>
+                    <span style="font-size:0.82rem;color:var(--text-light);">Mon–Fri 9am–5pm</span>
+                </div>
+
+                <div style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;margin-bottom:20px;">
+                    <h4 style="font-family:'Baloo 2',cursive;font-size:1.1rem;margin-bottom:14px;color:var(--dark);">📧 Email Us</h4>
+                    <a href="/cdn-cgi/l/email-protection#5831363e37182c303136333e372b2c3d2a31363f763b37762d33" style="font-size:0.95rem;color:var(--primary);font-weight:600;"><span class="__cf_email__" data-cfemail="452c2b232a05312d2c2b2e232a363120372c2b226b262a6b302e">[email&#160;protected]</span></a>
+                </div>
+
+                <div style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;margin-bottom:20px;">
+                    <h4 style="font-family:'Baloo 2',cursive;font-size:1.1rem;margin-bottom:14px;color:var(--dark);">📍 Our Address</h4>
+                    <p style="font-size:0.9rem;color:var(--text-light);line-height:1.7;">Think Fostering Ltd<br>128 City Road<br>London, EC1V 2NX</p>
+                </div>
+
+                <div style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;">
+                    <h4 style="font-family:'Baloo 2',cursive;font-size:1.1rem;margin-bottom:14px;color:var(--dark);">🧒 Want to Foster?</h4>
+                    <p style="font-size:0.88rem;color:var(--text-light);line-height:1.7;margin-bottom:16px;">If you're interested in becoming a foster carer, use our dedicated application form.</p>
+                    <a href="become-a-foster-carer.html" class="btn btn-primary" style="width:100%;justify-content:center;padding:12px 24px;font-size:0.88rem;">Become a Foster Carer →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function submitContactForm() {
+    var fields = ['cfFirstName','cfSurname','cfEmail','cfEnquiryType','cfSubject','cfMessage','cfConsent'];
+    var valid = true;
+    fields.forEach(function(id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        if (el.type === 'checkbox') {
+            if (!el.checked) { el.closest('label').style.color = '#e53e3e'; valid = false; }
+            else { el.closest('label').style.color = ''; }
+        } else {
+            el.classList.remove('error');
+            if (!el.value.trim()) { el.classList.add('error'); valid = false; }
+        }
+    });
+    if (!valid) return;
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('contactSuccess').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="images/think-fostering-logo.webp" alt="Think Fostering" height="40" style="height:40px;width:auto;filter:brightness(0) invert(1);opacity:0.9;">
+                <p>Your hub for everything fostering. Connecting potential foster carers with trusted agencies across the UK.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="LinkedIn">💼</a>
+                </div>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="find-an-agency.html#find-agency">Find an Agency</a></li>
+                    <li><a href="fostering.html">About Fostering</a></li>
+                    <li><a href="transfer-fostering-agency.html">Transfer Agency</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Fostering Info</h4>
+                <ul class="footer-links">
+                    <li><a href="fostering.html">What is Fostering?</a></li>
+                    <li><a href="faqs.html">Can I Foster?</a></li>
+                    <li><a href="faqs.html">Allowances</a></li>
+                    <li><a href="transfer-fostering-agency.html">Transfer Agency</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Get in Touch</h4>
+                <ul class="footer-links">
+                    <li><a href="become-a-foster-carer.html">Become a Foster Carer</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li><a href="agency-signup.html">For Agencies</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-use.html">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;margin-top:20px;font-size:0.82rem;color:rgba(255,255,255,0.45);text-align:center;line-height:1.7">
+            <strong style="color:rgba(255,255,255,0.6)">Think Fostering</strong> &middot; 
+            128 City Road, London, EC1V 2NX &middot; 
+            <a href="tel:08001234567" style="color:rgba(255,255,255,0.5)">0800 123 4567</a> &middot; 
+            <a href="/cdn-cgi/l/email-protection#4b232e2727240b3f232225202d24383f2e3922252c652824653e20" style="color:rgba(255,255,255,0.5)"><span class="__cf_email__" data-cfemail="c7afa2ababa887b3afaea9aca1a8b4b3a2b5aea9a0e9a4a8e9b2ac">[email&#160;protected]</span></a>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:14px;margin-top:14px;font-size:0.78rem;color:rgba(255,255,255,0.35);text-align:center;">
+            <a href="sitemap.xml" style="color:rgba(255,255,255,0.4);margin:0 10px;">Sitemap</a> | 
+            <a href="llms.txt" style="color:rgba(255,255,255,0.4);margin:0 10px;">LLMs</a> | 
+            <a href="robots.txt" style="color:rgba(255,255,255,0.4);margin:0 10px;">Robots</a> | 
+            <a href="https://thinkfostering.co.uk/fostering" style="color:rgba(255,255,255,0.4);margin:0 10px;">Fostering UK</a> | 
+            <a href="https://www.thinkfostering.co.uk/find-an-agency" style="color:rgba(255,255,255,0.4);margin:0 10px;">Foster Care Agency Near Me</a>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 <a href="https://thinkfostering.co.uk" style="color:rgba(255,255,255,0.6);font-weight:600;">Think Fostering</a>. All rights reserved.</span>
+            <span>Made with &#128155; for foster families</span>
+        </div>
+    </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // ===== STATE =====
+    let currentStep = 1;
+    const totalSteps = 4;
+    let hasSecondApplicant = false;
+
+    // ===== HEADER =====
+    window.addEventListener('scroll', () => {
+        document.getElementById('header').classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // ===== MOBILE NAV =====
+    document.getElementById('mobileToggle').addEventListener('click', () => {
+        document.getElementById('mobileNav').classList.toggle('active');
+    });
+    function closeMobileNav() { document.getElementById('mobileNav').classList.remove('active'); }
+
+    // ===== SECOND APPLICANT =====
+    function toggleSecondApplicant() {
+        hasSecondApplicant = !hasSecondApplicant;
+        document.getElementById('secondApplicant').classList.toggle('show', hasSecondApplicant);
+        document.getElementById('toggleSecond').style.display = hasSecondApplicant ? 'none' : 'block';
+    }
+
+    // ===== STEP NAVIGATION =====
+    function showStep(step) {
+        document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+        document.getElementById('step-' + step).classList.add('active');
+
+        document.querySelectorAll('.progress-step').forEach(p => {
+            const s = parseInt(p.dataset.step);
+            p.classList.remove('active', 'completed');
+            if (s === step) p.classList.add('active');
+            else if (s < step) p.classList.add('completed');
+        });
+
+        document.getElementById('prevBtn').style.display = step > 1 ? 'inline-flex' : 'none';
+        document.getElementById('nextBtn').textContent = step === totalSteps ? '🚀 Submit Enquiry' : 'Continue →';
+        document.getElementById('stepInfo').textContent = 'Step ' + step + ' of ' + totalSteps;
+
+        if (step === 4) buildReview();
+
+        document.getElementById('formCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function nextStep() {
+        if (currentStep === totalSteps) {
+            submitForm();
+            return;
+        }
+        currentStep++;
+        showStep(currentStep);
+    }
+
+    function prevStep() {
+        if (currentStep > 1) {
+            currentStep--;
+            showStep(currentStep);
+        }
+    }
+
+    function goToStep(step) {
+        if (step <= currentStep || step === currentStep + 1) {
+            currentStep = step;
+            showStep(currentStep);
+        }
+    }
+
+    // ===== BUILD REVIEW =====
+    function buildReview() {
+        const val = id => {
+            const el = document.getElementById(id);
+            if (!el) return '';
+            if (el.tagName === 'SELECT') return el.options[el.selectedIndex]?.text || '';
+            return el.value || '';
+        };
+
+        let html = '<div style="display:flex;flex-direction:column;gap:24px;">';
+
+        // Enquiry Type
+        html += reviewSection('📋 Nature of Enquiry', [
+            ['Enquiry Type', val('enquiryType')],
+        ]);
+
+        // Applicant 1
+        html += reviewSection('👤 First Applicant', [
+            ['Name', val('a1FirstName') + ' ' + val('a1Surname')],
+            ['Date of Birth', val('a1DOB')],
+            ['Email', val('a1Email')],
+            ['Mobile', val('a1Mobile')],
+            ['Marital Status', val('a1Marital')],
+            ['Employment', val('a1Employment')],
+            ['Nationality', val('a1Nationality')],
+        ]);
+
+        // Applicant 2
+        if (hasSecondApplicant) {
+            html += reviewSection('👤 Second Applicant', [
+                ['Name', val('a2FirstName') + ' ' + val('a2Surname')],
+                ['Date of Birth', val('a2DOB')],
+                ['Mobile', val('a2Mobile')],
+                ['Relationship', val('a2Relationship')],
+            ]);
+        }
+
+        // Household
+        html += reviewSection('🏠 Household', [
+            ['Address', [val('address1'), val('address2'), val('addressCity'), val('addressCounty'), val('addressPostcode')].filter(Boolean).join(', ')],
+            ['Property', val('propertyType') + ' (' + val('ownRent') + ')'],
+            ['Bedrooms', val('bedrooms')],
+            ['Spare Bedroom', val('spareBedroom')],
+            ['Children at Home', val('childrenAtHome')],
+            ['Pets', val('pets')],
+        ]);
+
+        // About
+        html += reviewSection('💭 About You', [
+            ['Fostering Type', val('fosteringType')],
+            ['Age Range', val('ageRange')],
+            ['Criminal Convictions', val('convictions')],
+            ['Known to Social Services', val('socialServices')],
+            ['Smoking', val('smoking')],
+            ['Driving Licence', val('drivingLicence')],
+            ['Right to Work in UK', val('rightToWork')],
+            ['Previous Application', val('previousApplication')],
+        ]);
+
+        if (val('message')) {
+            html += reviewSection('💬 Your Message', [['', val('message')]]);
+        }
+
+        html += '</div>';
+        document.getElementById('reviewContent').innerHTML = html;
+    }
+
+    function reviewSection(title, fields) {
+        let html = '<div style="background:#fafbfc;border-radius:12px;padding:24px;border:1px solid #e2e8f0;">';
+        html += '<h3 style="font-family:Baloo 2,cursive;font-size:1.1rem;margin-bottom:16px;color:#1a1a2e;">' + title + '</h3>';
+        fields.forEach(([label, value]) => {
+            if (value && value.trim()) {
+                html += '<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f1f5f9;font-size:0.9rem;">';
+                if (label) html += '<span style="color:#64748b;">' + label + '</span>';
+                html += '<span style="color:#1a1a2e;font-weight:500;text-align:right;max-width:60%;">' + escHTML(value) + '</span>';
+                html += '</div>';
+            }
+        });
+        html += '</div>';
+        return html;
+    }
+
+    // ===== SUBMIT =====
+    function submitForm() {
+        const consent = document.getElementById('consent');
+        if (!consent.checked) {
+            alert('Please tick the consent checkbox before submitting.');
+            return;
+        }
+
+        document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+        document.getElementById('formSuccess').classList.add('show');
+        document.getElementById('formNav').style.display = 'none';
+        document.querySelector('.progress-bar').style.display = 'none';
+    }
+
+    // ===== UTILS =====
+    function escHTML(str) {
